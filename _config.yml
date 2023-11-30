@@ -3,22 +3,23 @@ title: "Niu Liu (刘牛)"
 hometitle: "Welcome to homepage of Niu Liu (刘牛)"
 description: "My personal website"
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://localhost:3000" 
+url: "http://liuniu.fun" 
 blogdescription: "Knowledge is for sharing."
 blogname: "Neo's blog"
 
 # User settings
 username: "Niu Liu"
 user_description: |
-  Born in 1993, I obtained my BSc in 2015 and my PhD degree in 2020,
+  I obtained my BSc in 2015 and my PhD degree in 2020,
   both at Nanjing University (NJU). I was a joint PhD student in SYRTE,
   Paris Observatory from November 2017 to October 2018.
   Since September 2020, I was sponsored by the Yu-Xiu Young Scholar Program at 
   NJU and started my postdoc research there.
-  Now I got a tenure-track position at NJU and became an assistant professor in 2023.
+  Now I got a tenure-track position and became an assistant professor at NJU in 2023.
+  My main research interests include VLBI astrometry, celestial reference frame,
+  and space astrometry.
 user_title: "Doctor in Astronomy"
 avatar: "HeadShot2.png"
-github_username: "Niu-Liu"
 
 # # ----------------- Copied from academic -----------------
 # teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
