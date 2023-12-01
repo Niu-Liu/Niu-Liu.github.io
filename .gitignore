@@ -134,3 +134,4 @@ package-lock.json
 package.json
 src/
 gulpfile.js
+*/.DS_store
