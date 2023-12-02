@@ -1,0 +1,53 @@
+{% include base_path %}
+
+{% if page.author and site.data.authors[page.author] %}
+  {% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.author %}
+{% endif %}
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  <div class="author__avatar">
+    {% if author.avatar contains "://" %}
+    	<img src="{{ author.avatar }}" alt="{{ author.name }}">
+    {% else %}
+    	<img src="{{ author.avatar | prepend: "/assets/img/" | prepend: base_path }}" class="author__avatar" alt="{{ author.name }}">
+    {% endif %}
+  </div>
+
+  <div class="author__content">
+    <h3 class="author__name">{{ author.name }}</h3>
+    {% if author.bio %}<p class="author__bio">{{ author.bio }}</p>{% endif %}
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      {% if author.location %}
+      <li><a href="https://en.wikipedia.org/wiki/{{author.city}}"><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> {{ author.location }}</a></li>
+      {% endif %}
+      {% if author.employer %}
+      <li><a href="{{author.employer_url}}"><i class="fa fa-fw fa-university" aria-hidden="true"></i> {{ author.employer }}</a></li>
+      {% endif %}
+      {% if author.uri %}
+        <li><a href="{{ author.uri }}"><i class="fas fa-fw fa-link" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].website_label | default: "Website" }}</a></li>
+      {% endif %}
+      {% if author.email %}
+        <!-- <li><a href="mailto:{{ author.email }}"><i class="fas fa-fw
+            fa-envelope" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].email_label | default: "Email" }}</a></li> -->
+        <li><a href="mailto:niu.liu@nju.edu.cn"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> niu.liu@nju.edu.cn</a></li>
+      {% endif %}
+       {% if author.researchgate %}
+        <li><a href="{{ author.researchgate }}"><i class="ai ai-researchgate-square ai-fw" aria-hidden="true"></i> ResearchGate</a></li>
+      {% endif %}
+      {% if author.github %}
+        <li><a href="https://github.com/{{ author.github }}"><i class="fab fa-fw fa-github" aria-hidden="true"></i> Github</a></li>
+      {% endif %}
+      {% if author.orcid %}
+      <li><a href="http://orcid.org/{{ author.orcid }}"><i class="ai ai-orcid-square ai-fw"></i> {{author.orcid}}</a></li>
+      {% endif %}
+      {% if author.adslib %}
+        <li><a href="{{ author.adslib }}"><i class="ai ai-ads-square ai-fw" aria-hidden="true"></i> Find me on ADS</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</div>
