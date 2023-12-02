@@ -26,82 +26,71 @@ avatar: "bio.png"
 # Analytics
 # Google-analytics
 google-analytics   : "G-KKSL7XM2F6"
-# 
-# # Site Author
-# author:
-#   name             : "Niu Liu"
-#   avatar           : "HeadShot2.png"
-#   location         : "Nanjing, China"
-#   city             : "Nanjing"
-#   employer         : "Nanjing University"
-#   employer_url     : "https://astronomy.nju.edu.cn/EN/index.html"
-#   email            : "secret"
-#   pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-#   researchgate     : "https://www.researchgate.net/profile/Niu-Liu?ev=hdr_xprf"
-#   uri              :
-#   codepen          :
-#   dribbble         :
-#   foursquare       :
-#   github           :
-#   keybase          :
-#   instagram        :
-#   impactstory      :
-#   lastfm           :
-#   linkedin         :
-#   orcid            : "0000-0003-2778-002X"
-#   pinterest        :
-#   soundcloud       :
-#   steam            :
-#   adslib           : "https://ui.adsabs.harvard.edu/user/libraries/EWTz-0tVSn6LqIz7ZgLMgg"
-# 
-# 
-# include:
-#   - .htaccess
-#   - _pages
-#   - files
-# exclude:
-#   - "*.sublime-project"
-#   - "*.sublime-workspace"
-#   - .asset-cache
-#   - .bundle
-#   - .jekyll-assets-cache
-#   - .sass-cache
-#   - CHANGELOG
-#   - Capfile
-#   - Gemfile
-#   - Gruntfile.js
-#   - LICENSE
-#   - README
-#   - Rakefile
-#   - assets/js/_main.js
-#   - assets/js/plugins
-#   - assets/js/vendor
-#   - config
-#   - gulpfile.js
-#   - log
-#   - node_modules
-#   - package.json
-#   - tmp
-#   - vendor
-#   - yarn.lock
-#   - CNAME
-# keep_files:
-#   - .git
-#   - .svn
-# encoding: "utf-8"
-# markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-# 
-# # Conversion
-# markdown: kramdown
-# highlighter: rouge
-# lsi: false
-# #
-# # excerpt_separator: "<!-- excerpt-end -->"
-# excerpt_separator: "<!-- more -->"
-# # Default: "\n\n". Modified referred to https://cjshelton.github.io/blog/2019/05/27/customising-jekyll-excerpt-start.html
-# incremental: false
-# 
-# 
+
+# Site Author
+author:
+  name             : "Niu Liu"
+  avatar           : "HeadShot2.png"
+  location         : "Nanjing, China"
+  city             : "Nanjing"
+  employer         : "Nanjing University"
+  employer_url     : "https://astronomy.nju.edu.cn/EN/index.html"
+  email            : "secret"
+  researchgate     : "https://www.researchgate.net/profile/Niu-Liu?ev=hdr_xprf"
+  uri              :
+  github           :
+  linkedin         :
+  orcid            : "0000-0003-2778-002X"
+  adslib           : "https://ui.adsabs.harvard.edu/user/libraries/EWTz-0tVSn6LqIz7ZgLMgg"
+
+
+include:
+  - .htaccess
+  - _pages
+  - files
+exclude:
+  - "*.sublime-project"
+  - "*.sublime-workspace"
+  - .asset-cache
+  - .bundle
+  - .jekyll-assets-cache
+  - .sass-cache
+  - CHANGELOG
+  - Capfile
+  - Gemfile
+  - Gruntfile.js
+  - LICENSE
+  - README
+  - Rakefile
+  - assets/js/_main.js
+  - assets/js/plugins
+  - assets/js/vendor
+  - config
+  - gulpfile.js
+  - log
+  - node_modules
+  - package.json
+  - tmp
+  - vendor
+  - yarn.lock
+  - CNAME
+keep_files:
+  - .git
+  - .svn
+encoding: "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+
+# Conversion
+markdown: kramdown
+highlighter: rouge
+lsi: false
+
+# excerpt_separator: "<!-- excerpt-end -->"
+excerpt_separator: "<!-- more -->"
+# Default: "\n\n". Modified referred to https://cjshelton.github.io/blog/2019/05/27/customising-jekyll-excerpt-start.html
+incremental: false
+
+
 # # Markdown Processing
 # kramdown:
 #     input: GFM
