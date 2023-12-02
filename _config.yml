@@ -26,7 +26,7 @@ google-analytics   : "G-KKSL7XM2F6"
 # Site Author
 author:
   name             : "Niu Liu"
-  avatar           : "HeadShot2.png"
+  avatar           : "bio.png"
   location         : "Nanjing, China"
   city             : "Nanjing"
   employer         : "Nanjing University"
@@ -37,10 +37,10 @@ author:
   adslib           : "https://ui.adsabs.harvard.edu/user/libraries/EWTz-0tVSn6LqIz7ZgLMgg"
 
 
-# # include:
-# #   - .htaccess
-# #   - _pages
-# #   - files
+include:
+  - .htaccess
+  - _pages
+  - files
 # # exclude:
 # #   - "*.sublime-project"
 # #   - "*.sublime-workspace"
