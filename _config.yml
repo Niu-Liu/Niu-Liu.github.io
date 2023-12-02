@@ -84,22 +84,22 @@ Default: "\n\n". Modified referred to https://cjshelton.github.io/blog/2019/05/2
 incremental: false
 
 
-# # Markdown Processing
-# kramdown:
-#     input: GFM
-#     hard_wrap: false
-#     auto_ids: true
-#     footnote_nr: 1
-#     entity_output: as_char
-#     toc_levels: 1..6
-#     smart_quotes: lsquo,rsquo,ldquo,rdquo
-#     enable_coderay: false
-#     syntax_highlighter: rouge
-#     syntax_highlighter_opts:
-#       # Use existing pygments syntax highlighting css
-#       css_class: 'highlight'
+# Markdown Processing
+kramdown:
+    input: GFM
+    hard_wrap: false
+    auto_ids: true
+    footnote_nr: 1
+    entity_output: as_char
+    toc_levels: 1..6
+    smart_quotes: lsquo,rsquo,ldquo,rdquo
+    enable_coderay: false
+    syntax_highlighter: rouge
+    syntax_highlighter_opts:
+      # Use existing pygments syntax highlighting css
+      css_class: 'highlight'
 # 
-Sass/SCSS
+# Sass/SCSS
 sass:
  sass_dir: _sass
  style: compressed # http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
