@@ -126,32 +126,32 @@ google-analytics   : "G-KKSL7XM2F6"
 # #   - jekyll-feed
 # #   - jemoji
 # # 
-# # ----------------- Copied from lemonchann -----------------
-# # 你的favicon（出现在浏览器tab上）图片URL，建议使用较小(64px × 64px)的图片
-# favicon: https://raw.githubusercontent.com/Niu-Liu/Niu-Liu.github.io/master/assets/img/Headshot.ico
-# 
-# # Tabs in header. There are 'Blog', 'About', 'Archive', 'Tags'
-# # and URL Link(e.g. 'Theme' tab below) tabs. If you don't need one, just delete
-# # it from the list(Delete '- name: ' and 'url: ', too!)
-# navigation:
-# # - name: 首页
-#   - name: Home
-#     url: /
-# # - name: 博客
-#   - name: Blog
-#     url: /blogs
-# # - name: 归档
-#   - name: Archive
-#     url: /archive
-# # - name: 标签
-#   - name: Tags
-#     url: /tags
-# 
-# # Pagination
-# paginate: 8
-# 
-# # Text under the icons in footer
-# footer-text:
+# ----------------- Copied from lemonchann -----------------
+# 你的favicon（出现在浏览器tab上）图片URL，建议使用较小(64px × 64px)的图片
+favicon: https://raw.githubusercontent.com/Niu-Liu/Niu-Liu.github.io/master/assets/img/Headshot.ico
+
+# Tabs in header. There are 'Blog', 'About', 'Archive', 'Tags'
+# and URL Link(e.g. 'Theme' tab below) tabs. If you don't need one, just delete
+# it from the list(Delete '- name: ' and 'url: ', too!)
+navigation:
+# - name: 首页
+  - name: Home
+    url: /
+# - name: 博客
+  - name: Blog
+    url: /blogs
+# - name: 归档
+  - name: Archive
+    url: /archive
+# - name: 标签
+  - name: Tags
+    url: /tags
+
+# Pagination
+paginate: 8
+
+# Text under the icons in footer
+footer-text:
 #  
 #
 # !! You don't need to change any of the configuration flags below !!
