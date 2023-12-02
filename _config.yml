@@ -161,26 +161,26 @@ google-analytics   : "G-KKSL7XM2F6"
 #     url: /
 # # - name: 博客
 #   - name: Blog
-#     url: /blogs
+#     url: /  blogs
 # # - name: 归档
 #   - name: Archive
 #     url: /archive
 # # - name: 标签
 #   - name: Tags
 #     url: /tags
-# 
-# # Pagination
-# paginate: 8
-# 
-# # Text under the icons in footer
-# footer-text:
-# 
-# #
-# # !! You don't need to change any of the configuration flags below !!
-# #
-# 
-# permalink: /:title/
-# paginate_path: /blogs/page:num/
-# 
-# theme: jekyll-theme-minimal
-# 
+
+# Pagination
+paginate: 8
+
+# Text under the icons in footer
+footer-text:
+ 
+#
+# !! You don't need to change any of the configuration flags below !!
+#
+
+permalink: /:title/
+paginate_path: /blogs/page:num/
+ 
+theme: jekyll-theme-minimal
+
