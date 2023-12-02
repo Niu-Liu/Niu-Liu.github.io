@@ -37,46 +37,46 @@ author:
   adslib           : "https://ui.adsabs.harvard.edu/user/libraries/EWTz-0tVSn6LqIz7ZgLMgg"
 
 
-include:
-  - .htaccess
-  - _pages
-  - files
-exclude:
-  - "*.sublime-project"
-  - "*.sublime-workspace"
-  - .asset-cache
-  - .bundle
-  - .jekyll-assets-cache
-  - .sass-cache
-  - CHANGELOG
-  - Capfile
-  - Gemfile
-  - Gruntfile.js
-  - LICENSE
-  - README
-  - Rakefile
-  - assets/js/_main.js
-  - assets/js/plugins
-  - assets/js/vendor
-  - config
-  - gulpfile.js
-  - log
-  - node_modules
-  - package.json
-  - tmp
-  - vendor
-  - yarn.lock
-  - CNAME
-keep_files:
-  - .git
-  - .svn
-encoding: "utf-8"
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+# include:
+#   - .htaccess
+#   - _pages
+#   - files
+# exclude:
+#   - "*.sublime-project"
+#   - "*.sublime-workspace"
+#   - .asset-cache
+#   - .bundle
+#   - .jekyll-assets-cache
+#   - .sass-cache
+#   - CHANGELOG
+#   - Capfile
+#   - Gemfile
+#   - Gruntfile.js
+#   - LICENSE
+#   - README
+#   - Rakefile
+#   - assets/js/_main.js
+#   - assets/js/plugins
+#   - assets/js/vendor
+#   - config
+#   - gulpfile.js
+#   - log
+#   - node_modules
+#   - package.json
+#   - tmp
+#   - vendor
+#   - yarn.lock
+#   - CNAME
+# keep_files:
+#   - .git
+#   - .svn
+# encoding: "utf-8"
+# markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
 # Conversion
-markdown: kramdown
-highlighter: rouge
-lsi: false
+# markdown: kramdown
+# highlighter: rouge
+# lsi: false
 
 # excerpt_separator: "<!-- excerpt-end -->"
 excerpt_separator: "<!-- more -->"
@@ -85,19 +85,19 @@ incremental: false
 
 
 # Markdown Processing
-kramdown:
-    input: GFM
-    hard_wrap: false
-    auto_ids: true
-    footnote_nr: 1
-    entity_output: as_char
-    toc_levels: 1..6
-    smart_quotes: lsquo,rsquo,ldquo,rdquo
-    enable_coderay: false
-    syntax_highlighter: rouge
-    syntax_highlighter_opts:
-      # Use existing pygments syntax highlighting css
-      css_class: 'highlight'
+# kramdown:
+#     input: GFM
+#     hard_wrap: false
+#     auto_ids: true
+#     footnote_nr: 1
+#     entity_output: as_char
+#     toc_levels: 1..6
+#     smart_quotes: lsquo,rsquo,ldquo,rdquo
+#     enable_coderay: false
+#     syntax_highlighter: rouge
+#     syntax_highlighter_opts:
+#       # Use existing pygments syntax highlighting css
+#       css_class: 'highlight'
 # 
 # Sass/SCSS
 sass:
@@ -119,13 +119,13 @@ plugins:
   - jekyll-feed
   - jekyll-redirect-from
 # mimic GitHub Pages with --safe
-whitelist:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-gist
-  - jekyll-feed
-  - jemoji
-
+# whitelist:
+#   - jekyll-paginate
+#   - jekyll-sitemap
+#   - jekyll-gist
+#   - jekyll-feed
+#   - jemoji
+# 
 # ----------------- Copied from lemonchann -----------------
 # 你的favicon（出现在浏览器tab上）图片URL，建议使用较小(64px × 64px)的图片
 favicon: https://raw.githubusercontent.com/Niu-Liu/Niu-Liu.github.io/master/assets/img/Headshot.ico
