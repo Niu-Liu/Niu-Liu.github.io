@@ -77,12 +77,11 @@ author:
 # # markdown: kramdown
 # # highlighter: rouge
 # # lsi: false
-# 
-# # excerpt_separator: "<!-- excerpt-end -->"
-# excerpt_separator: "<!-- more -->"
+  
+excerpt_separator: "<!-- more -->"
 # Default: "\n\n". # Modified referred to https://cjshelton.github.io/blog/2019/05/27/customising-jekyll-excerpt-start.html
-# incremental: false
-# 
+incremental: false
+  
 # 
 # # Markdown Processing
 # # kramdown:
@@ -103,22 +102,22 @@ author:
 # sass:
 #  sass_dir: _sass
 #  style: compressed # http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
-# 
-# # Plugins
-# plugins:
-#   - jekyll-paginate
-#   - jekyll-sitemap
-#   - jekyll-gist
-#   - jekyll-feed
-#   - jekyll-redirect-from
-# # mimic GitHub Pages with --safe
-# # whitelist:
-# #   - jekyll-paginate
-# #   - jekyll-sitemap
-# #   - jekyll-gist
-# #   - jekyll-feed
-# #   - jemoji
-# # 
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jekyll-redirect-from
+# mimic GitHub Pages with --safe
+whitelist:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
+
 # ----------------- Copied from lemonchann -----------------
 # 你的favicon（出现在浏览器tab上）图片URL，建议使用较小(64px × 64px)的图片
 favicon: https://raw.githubusercontent.com/Niu-Liu/Niu-Liu.github.io/master/assets/img/Headshot.ico
