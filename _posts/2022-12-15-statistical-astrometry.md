@@ -5,6 +5,7 @@ date: 2022-12-15
 permalink: /blogs/statistical_astrometry.html
 tags:
   - astrometry
+  - Methods: statistical
 comments: true
 author: Neo
 usemathjax: true

@@ -73,10 +73,10 @@ keep_files:
 encoding: "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
   
-# # Conversion
-# # markdown: kramdown
-# # highlighter: rouge
-# # lsi: false
+# Conversion
+markdown: kramdown
+highlighter: rouge
+lsi: false
   
 excerpt_separator: "<!-- more -->"
 # Default: "\n\n". # Modified referred to https://cjshelton.github.io/blog/2019/05/27/customising-jekyll-excerpt-start.html
@@ -97,11 +97,11 @@ incremental: false
 # #     syntax_highlighter_opts:
 # #       # Use existing pygments syntax highlighting css
 # #       css_class: 'highlight'
-# # 
-# # Sass/SCSS
-# sass:
-#  sass_dir: _sass
-#  style: compressed # http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
+
+# Sass/SCSS
+sass:
+  sass_dir: _sass
+  style: compressed # http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
 
 # Plugins
 plugins:
