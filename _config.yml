@@ -1,20 +1,32 @@
+# # ----------------- Copied from particle template -----------------
 # Site settings
-title: A blog about lorem ipsum dolor sit amet
-description: A blog about lorem ipsum dolor sit amet
-# baseurl: "/particle" # the subpath of your site, e.g. /blog
-# url: "localhost:3000" # the base hostname & protocol for your site e.g. http://willianjusten.com.br
+title: "Niu Liu (刘牛)"
+hometitle: "Welcome to homepage of Niu Liu (刘牛)"
+description: "My personal website"
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://liuniu.fun" 
 
 # User settings
-username: Anon Developer
-user_description: Bicycle rights irony actually neutra typewriter lyft. Man bun taxidermy put a bird on it, umami yr ramps pop-up ugh bushwick chia lo-fi. Occupy bitters pour-over snackwave you probably haven't heard of them small batch. Cornhole mustache man bun letterpress echo park VHS.
-user_title: Software Developer
+# User settings
+username: "Niu Liu"
+user_description: |
+  I obtained my BSc in 2015 and my PhD degree in 2020,
+  both at Nanjing University (NJU). I was a joint PhD student in SYRTE,
+  Paris Observatory from November 2017 to October 2018.
+  Since September 2020, I was sponsored by the Yu-Xiu Young Scholar Program at 
+  NJU and started my postdoc research there.
+  Now I got a tenure-track position and became an assistant professor at NJU in 2023.
+user_title: "Assistant Professor in Astronomy"
+avatar: "bio.png"
 email: anon@anon.com
-twitter_username: lorem_ipsum
-github_username:  lorem_ipsum
-gplus_username:  lorem_ipsum
 
 # Google-analytics
 google-analytics:
-  id: ""
+  id: "G-KKSL7XM2F6"
 
 exclude: ['package.json', 'src' , 'node_modules']
+
+# Site settings
+# blogdescription: "Knowledge is for sharing."
+# blogname: "Neo's blog"
+
