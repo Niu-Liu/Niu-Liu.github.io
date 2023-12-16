@@ -19,7 +19,7 @@ google-analytics:
 
 exclude: ['package.json', 'src' , 'node_modules']
 
------------------ Copied from academicpages template -----------------
+# ----------------- Copied from academicpages template -----------------
 # Site Author
 author:
   name             : "Niu Liu"
