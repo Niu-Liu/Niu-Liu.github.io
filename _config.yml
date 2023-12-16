@@ -24,7 +24,6 @@ exclude: ['package.json', 'src' , 'node_modules']
 author:
   name             : "Niu Liu"
   avatar           : "bio-photo.png"
-  bio              : "bio.png"
   location         : "Nanjing, China"
   city             : "Nanjing"
   employer         : "Nanjing University"
