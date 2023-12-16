@@ -17,13 +17,13 @@ avatar: "bio.png"
 google-analytics:
   id: "G-KKSL7XM2F6"
 
-exclude: ['package.json', 'src' , 'node_modules']
+# exclude: ['package.json', 'src' , 'node_modules']
 
 # ----------------- Copied from academicpages template -----------------
 # Site Author
 author:
   name             : "Niu Liu"
-  avatar           : "bio-photo.png"
+  avatar           : "bio.png"
   location         : "Nanjing, China"
   city             : "Nanjing"
   employer         : "Nanjing University"
@@ -80,20 +80,20 @@ main_navigation:
   - title: "Blog"
     url: /blogs/
 
-# Collections
-collections:
-  teaching:
-    output: true
-    permalink: /:collection/:path/
-  publications:
-    output: true
-    permalink: /:collection/:path/
-#   portfolio:
+# # Collections
+# collections:
+#   teaching:
 #     output: true
 #     permalink: /:collection/:path/
-  talks:
-    output: true
-    permalink: /:collection/:path/
+#   publications:
+#     output: true
+#     permalink: /:collection/:path/
+# #   portfolio:
+# #     output: true
+# #     permalink: /:collection/:path/
+#   talks:
+#     output: true
+#     permalink: /:collection/:path/
 
 
 # Defaults
@@ -151,6 +151,39 @@ defaults:
       layout: talk
       author_profile: true
       share: true
+
+# Reading Files
+include:
+  - .htaccess
+  - _pages
+  - files
+exclude:
+  - "*.sublime-project"
+  - "*.sublime-workspace"
+  - .asset-cache
+  - .bundle
+  - .jekyll-assets-cache
+  - .sass-cache
+  - CHANGELOG
+  - Capfile
+  - Gemfile
+  - Gruntfile.js
+  - LICENSE
+  - README
+  - Rakefile
+  - assets/js/_main.js
+  - assets/js/plugins
+  - assets/js/vendor
+  - config
+  - gulpfile.js
+  - log
+  - node_modules
+  - package.json
+  - tmp
+  - vendor
+keep_files:
+  - .git
+  - .svn
 
 # ----------------- Copied from lemonchann template -----------------
 blogdescription: "Knowledge is for sharing."
@@ -213,40 +246,6 @@ kramdown:
       # Use existing pygments syntax highlighting css
       css_class: 'highlight'
 
-# # Reading Files
-# include:
-#   - .htaccess
-#   - _pages
-#   - files
-# exclude:
-#   - "*.sublime-project"
-#   - "*.sublime-workspace"
-#   - .asset-cache
-#   - .bundle
-#   - .jekyll-assets-cache
-#   - .sass-cache
-#   - CHANGELOG
-#   - Capfile
-#   - Gemfile
-#   - Gruntfile.js
-#   - LICENSE
-#   - README
-#   - Rakefile
-#   - assets/js/_main.js
-#   - assets/js/plugins
-#   - assets/js/vendor
-#   - config
-#   - gulpfile.js
-#   - log
-#   - node_modules
-#   - package.json
-#   - tmp
-#   - vendor
-# keep_files:
-#   - .git
-#   - .svn
-#
-#
 
 
 # # # ----------------- Copied from academic -----------------
