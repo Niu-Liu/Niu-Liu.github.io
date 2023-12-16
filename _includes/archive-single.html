@@ -20,7 +20,7 @@
           {% if teaser contains "://" %}
             "{{ teaser }}"
           {% else %}
-            "{{ teaser | prepend: "/assets/img/" | prepend: base_path }}"
+            "{{ teaser | prepend: "/images/" | prepend: base_path }}"
           {% endif %}
           alt="">
       </div>
