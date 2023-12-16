@@ -33,6 +33,11 @@ author:
   researchgate     : "https://www.researchgate.net/profile/Niu-Liu?ev=hdr_xprf"
   orcid            : "0000-0003-2778-002X"
   adslib           : "https://ui.adsabs.harvard.edu/user/libraries/EWTz-0tVSn6LqIz7ZgLMgg"
+    
+# # Sass/SCSS
+# sass:
+#   sass_dir: _sass
+#   style: compressed # http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
 
 # ----------------- Copied from lemonchann template -----------------
 blogdescription: "Knowledge is for sharing."
@@ -118,11 +123,6 @@ theme: jekyll-theme-minimal
 # atom_feed:
 #   path                   : # blank (default) uses feed.xml
 # 
-# # SEO Related
-# google_site_verification :
-# bing_site_verification   :
-# alexa_site_verification  :
-# yandex_site_verification :
 # 
 # # Social Sharing
 # twitter:
@@ -276,11 +276,6 @@ theme: jekyll-theme-minimal
 #       layout: talk
 #       author_profile: true
 #       share: true
-# 
-# # Sass/SCSS
-# sass:
-#   sass_dir: _sass
-#   style: compressed # http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
 # 
 # 
 # # Outputting
