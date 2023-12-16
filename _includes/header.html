@@ -1,18 +1,23 @@
 <div id="particles-js">
   <div class="header">
       <h1>
-        <span class="site-title">{{site.username}}</span>
+        <img src="{{ site.avatar | prepend: "/assets/img/" | prepend: site.baseurl | prepend: site.url }}" alt="{{ site.username }}" width="183">
+        <span class="site-title">{{site.username}}</span> 
         <span class="site-description">{{site.user_title}}</span>
       </h1>
-      <div class="header-icons">
-        <a aria-label="Send email" href="#"><i class="icon fa fa-envelope"></i></a>
-        <a aria-label="My Twitter" target="_blank" href="#"><i class="icon fa fa-twitter" aria-hidden="true"></i></a>
-        <a aria-label="My Google Plus" target="_blank" href="#"><i class="icon fa fa-google-plus" aria-hidden="true"></i></a>
-        <a aria-label="My Github" target="_blank" href="#"><i class="icon fa fa-github-alt" aria-hidden="true"></i></a>
-      </div>
       <div class="header-links">
         <a class="link" href="#about" data-scroll>About Me</a>
-        <a class="link" href="#projects" data-scroll>Projects</a>
+        <a class="link" href="{{ "/cv/" | prepend: site.baseurl | prepend: site.url }}">CV</a>
+        <a class="link" href="{{ "/publications/" | prepend: site.baseurl | prepend: site.url }}">Publication</a>
+        <a class="link" href="#projects" data-scroll>Project</a>
+        <a class="link" href="{{ "/blogs/" | prepend: site.baseurl | prepend: site.url }}">Blog</a>
+      </div>
+      <div class="header-icons">
+        <a aria-label="Send email" target="_blank" href="mailto:niu.liu@nju.edu.cn"><i class="icon fa fa-envelope" aria-hidden="true"></i></a>
+        <a aria-label="My ORCID" target="_blank" href="http://orcid.org/{{site.author.orcid}}"><i class="icon ai ai-orcid" aria-hidden="true"></i></a>
+        <a aria-label="My ResearchGate" target="_blank" href="{{site.author.researchgate}}"><i class="icon ai ai-researchgate" aria-hidden="true"></i></a>
+        <a aria-label="My Github" target="_blank" href="https://github.com/{{site.github_username}}"><i class="icon fa fa-github-alt" aria-hidden="true"></i></a>
+        <a aria-label="Search me on ADS" target="_blank" href="{{site.author.adslib}}"><i class="icon ai ai-ads" aria-hidden="true"></i></a>
       </div>
   </div>
   <a class="down" href="#about" data-scroll><i class="icon fa fa-chevron-down" aria-hidden="true"></i></a>
