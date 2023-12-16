@@ -7,7 +7,6 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://liuniu.fun" 
 
 # User settings
-# User settings
 username: "Niu Liu"
 user_description: |
   I obtained my BSc in 2015 and my PhD degree in 2020,
@@ -18,7 +17,6 @@ user_description: |
   Now I got a tenure-track position and became an assistant professor at NJU in 2023.
 user_title: "Assistant Professor in Astronomy"
 avatar: "bio.png"
-email: anon@anon.com
 
 # Google-analytics
 google-analytics:
