@@ -212,4 +212,4 @@ setenv GOMP_STACKSIZE  2000000
 ## VI. 说明
 
 需要指出的是，在安装过程中也许会遇到其他问题。
-“[安装SGDASS可能遇到的问题及解决方案](https:liuniu.fun/blogs/sgdass_installation_notes.html)”一文对这些问题进行了总结，欢迎参考。
+“[安装SGDASS可能遇到的问题及解决方案](sgdass_installation_notes.html)”一文对这些问题进行了总结，欢迎参考。
