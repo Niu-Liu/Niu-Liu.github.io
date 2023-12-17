@@ -1,6 +1,6 @@
 ---
 layout: post-lemonchann
-title:  "安装SGDASS可能遇到的问题及解决方案"
+title:  "SGDASS的安装教程"
 date: 2022-02-01
 permalink: /blogs/install_sgdass.html
 tags:
@@ -11,210 +11,205 @@ toc: true
 author: Neo
 ---
 
-SGDASS全称为Space Geodesy Data Analysis Software System，
-是Leonid Petrov开发的空间测地数据分析软件套装。
-本文提到的问题都是在首次安装SGDASS和`pSolve`时遇到的，不适用于软件升级的情况。
+[SGDASS](http://astrogeo.org/sgdass/)全称为Space Geodesy Data Analysis Software System，是Leonid Petrov博士开发的空间测地数据分析软件套装。
+Leonid已经写了非常详细的[安装教程](http://astrogeo.org/data_archive/sgdass-20231122_INSTALL.txt)，并写了自动化安装脚本`sgdass_install.py`，其目的我想也是为了简化用户的安装过程，省去不必要的麻烦。
+本文试图在Leonid写的教程的基础上进行简化，以方便国内的同行安装SGDASS。
 
 <!-- more -->
 
-SGDASS的官网地址为：[http://astrogeo.org/sgdass/](http://astrogeo.org/sgdass/)。
-安装教程地址为[http://astrogeo.org/backup/sgdass_20211218_INSTALL.txt](http://astrogeo.org/backup/sgdass_20211218_INSTALL.txt)。
-尽管Leonid已经写了非常详细的安装教程,
-并写了自动化安装脚本`sgdass_install.py`，
-其目的我想也是为了简化用户的安装过程，省去不必要的麻烦。
-即使这样，我在安装的时候仍遇到了问题，现记录如下，以作为安装教程的补充。
+**说明**
 
-## 支持系统
+尽管Leonid在安装教程中提到
 
-Leonid的安装教程中提到
+> SGDASS fully supports Linux and MACOS,
 
-> SGDASS supports Linux and MACOS.
->
-> Disclaimer: MACOS installation was not recently checked and may be broken.
+但是，SGDASS在MacOS上的安装并不顺利。
 
-而在与Leonid的讨论中得知的实际情况是：
-截止到目前（2022年1月29日），SGDASS并不支持MACOS。
-但是，Leonid最近得到了一台苹果笔记本，因此，他会在未来的3到4周内测试SGDASS在MacOS上的安装。
+我和Leonid近期（2023年11月）曾在MacOS Sonoma（版本号为14.1.1）进行了尝试，但以失败告终。
 
-## 编译器问题
+因此，我个人建议不要再花时间在MacOS上进行尝试了。
 
-SGDASS的安装教程提到安装SGDASS最好使用gcc-11.2.0版本（Leonid测试时用的版本）以及相应的gfortran和g++。
-为此，我将服务器系统升级到了Ubuntu 21.10，
-此时系统自带的gcc编译器(`/usr/bin/gcc`)就是11.2版本。
-然而，如果使用系统自带的gcc和gfortran编译器，在编译`hdf5`时就会得到如下的报错
+## I. 安装库函数依赖
 
-> f951: Fatal Error: Reading module ‘h5global.mod’ at line 1556 column 38: Unexpected EOF
+SGDASS需要的库函数分为两类：
 
-这是由于编译器的库依赖不兼容导致的。
-检查服务器自带的gcc版本，得到结果如下
+- 需要由安装包管理器来安装，因而需要root用户的权限；
 
-> Using built-in specs.
->
-> COLLECT_GCC=/usr/bin/gcc
->
-> COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper
->
-> OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
->
-> OFFLOAD_TARGET_DEFAULT=1
->
-> Target: x86_64-linux-gnu
->
-> Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.2.0-7ubuntu2' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-ZPT0kp/gcc-11-11.2.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-ZPT0kp/gcc-11-11.2.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
->
-> Thread model: posix
->
-> Supported LTO compression algorithms: zlib zstd
->
-> gcc version 11.2.0 (Ubuntu 11.2.0-7ubuntu2)
+- 可以通过安装包管理器安装（需要root用户权限）或使用源代码进行编译安装（不需要root访问权限）。  
 
-Leonid认为可能是`--with-arch-32=i686`的编译flag，
-导致编译生成了32位架构的模块(`h5global.mod`?)，从而产生了错误。
+前者包括
 
-解决方法是依照SGDASS安装说明中第V条的方法，在`/opt64/`目录下编译安装gcc-11.2.0，
-并使用新编译的gcc和gfortran编译器来编译安装SGDASS。
+- tcsh。相应地，csh应为指向tcsh的符号链接;
+- X11头文件;
+- perl;
+- python3（3.4或更高版本）。
 
-## 编译`vex_parser`和`sur_sked`时的问题
+后者包括
 
-在解决编译器的问题之后，`hdf5`编译非常顺利，但是在编译`vex_parser`时又遇到了报错
->
-> make[1]: Entering directory '/data/sgdass/progs/vex_parser_20210707/src'
->
-> I/opt64/include -I../include -c -o get_band_range.o get_band_range.f
->
-> I/opt64/include -I../include -c -o matsub_nh.o matsub_nh.f
->
-> I/opt64/include -I../include -c -o vex_ang_fmts.o vex_ang_fmts.f
->
-> I/opt64/include -I../include -c -o vex_compar.o vex_compar.f
->
-> I/opt64/include -I../include -c -o vex_flags.o vex_flags.f
->
-> I/opt64/include -I../include -c -o vex_lists.o vex_lists.f
->
-> I/opt64/include -I../include -c -o vex_parser.o vex_parser.f
->
-> I/opt64/include -I../include -c -o vex_sou_idx.o vex_sou_idx.f
->
-> I/opt64/include -I../include -c -o vex_sta_idx.o vex_sta_idx.f
->
-> I/opt64/include -I../include -c -o sou_struc_fil_gen.o sou_struc_fil_gen.f
->
-> I/opt64/include -I../include -c -o souivs_to_sourfc.o souivs_to_sourfc.f
->
-> I/opt64/include -I../include -c -o sourfc_to_souivs.o sourfc_to_souivs.f
->
-> I/opt64/include: Command not found.
->
-> I/opt64/include: Command not found.
->
-> I/opt64/include: Command not found.
->
-> I/opt64/include: Command not found.
->
-> make[1]: [makefile:14: vex_compar.o] Error 1 (ignored)
->
-> I/opt64/include -I../include -c -o stp_compar.o stp_compar.f
->
-> make[1]: [makefile:14: matsub_nh.o] Error 1 (ignored)
->
-> make[1]: [makefile:14: vex_ang_fmts.o] Error 1 (ignored)
->
-> I/opt64/include -I../include -c -o stp_dir_parser.o stp_dir_parser.f
->
-> I/opt64/include: Command not found.
->
-> make[1]: [makefile:14: get_band_range.o] Error 1 (ignored)
->
-> I/opt64/include -I../include -c -o stp_fil_parser.o stp_fil_parser.f
->
-> I/opt64/include: Command not found.
->
-> I/opt64/include -I../include -c -o stp_obs_err.o stp_obs_err.f
->
-> I/opt64/include: Command not found.
->
-> make[1]: [makefile:14: vex_flags.o] Error 1 (ignored)
->
-> I/opt64/include -I../include -c -o stp_sefd.o stp_sefd.f
->
-> make[1]: [makefile:14: vex_lists.o] Error 1 (ignored)
->
-> make[1]: [makefile:14: vex_parser.o] Error 1 (ignored)
->
-> I/opt64/include -I../include -c -o stp_snr.o stp_snr.f
->
-> I/opt64/include -I../include -c -o stp_sta_idx.o stp_sta_idx.f
->
-> I/opt64/include: Command not found.
->
-> I/opt64/include: Command not found.
->
-编译`sur_sked`遇到的问题与此类似，二者均是因为环境变量的设置问题。
-具体而言，编译这两个软件需要使用一些在`/opt64/bin/petools_vars`中定义的环境变量，
-但是这些变量并没有在定义。
+- PostScript阅读器，例如ImageMagic；
+- GIF阅读器，例如ImageMagic；
+- gcc；
+- g++。
 
-解决方法：在`.cshrc`中加入一行
-
-```source /opt64/bin/petools_vars```
-
-来实现这些变量的定义。
-不过，`petools_vars`是在编译`petools`时从`petools`代码压缩包中解压并复制到`/opt64/bin/`
-目录下的。
-因此，为了保证编译顺利，有两种解决方法：
-
-* 解压`petools`代码压缩包，手动复制`petools_vars`到`/opt64/bin/`目录下；
-* 编译两次。
-
-## `postinstall`之前的准备
-
-在编译完成之后，需要进行一些额外的配置，来保证`pSolve`和`PIMA`的正常工作。
-首先就是要将`/opt64/bin`加入在`PATH`路径变量中去。
-
-查看安装配置文件的末尾，如`sgdass_config_astrogeo.cnf`，有
+接下来分别以Fedora和Ubuntu为例，给出安装这些软件包的命令。
+在Fedora 36（工作站版）上，安装命令为
 
 ```
-[PostInstall]:
 
-psolve    psolve_reset AU 48000 48000
-
-vtd       ${prefix}/bin/vtd_apriori_update.py -c /vlbi/vtd_data/apr.conf
-
-pima      ${prefix}/bin/create_fftw_plan MEASURE 1           ${prefix}/share/pima/pima_wis_big.inp ${prefix}/share/pima/pima_wis_big_1thr.wis
-pima      ${prefix}/bin/create_fftw_plan MEASURE 16          ${prefix}/share/pima/pima_wis_big.inp ${prefix}/share/pima/pima_wis_big_16thr.wis
-pima      ${prefix}/bin/create_fftw_plan MEASURE ${num_proc} ${prefix}/share/pima/pima_wis_big.inp ${prefix}/share/pima/pima_wis_big_${num_proc}thr.wis
-
-malo      ${prefix}/bin/malo_fftw_plan_create.csh
-```
-
-熟悉`Solve`的人可能知道，每次添加一名Solve的新用户（假设代号为XX），
-首先需要在`letok`文件中加入一行
+yum install tcsh, g++, perl-File-Compare, perl-FindBin, libX11-devel, libXp-devel, libXt-devel, xwd, xrdb, ImageMagick-devel
 
 ```
-XX  Some_Note
-```
 
-，之后运行
+在Ubuntu 22.04.2 LTS上，相应的命令为
 
 ```
-solve_reset XX max_num_obs(具体数字) max_num_par(具体数字) 
+
+sudo apt-get install tcsh, gcc, gfortran, cmake, g++, libx11-dev, libxt-dev, x11-xserver-utils, imagemagick
+
 ```
 
-来配置。
-`solve_reset`的用法可以通过运行`solve_reset`来获知，此处不细说。
+此外，SGDASS需要使用许多第三方开源软件包。
+这些软件包可能已经存在于Linux系统中，但并非所有的都可以与SGDASS一起协作，因为SGDASS要求它们以与大多数Linux发行版不同的方式进行编译。
+所以，这里建议对所有的这些开源软件包进行编译安装。
 
-使用`pSolve`也需要执行同样的步骤。
-对于`pSolve`，`letok`文件所在的目录为`/opt64/share/psolve/`。
-在加入新用户之后，将SGDASS安装配置文件的用户代号（
-如`sgdass_config_astrogeo.cnf`中的“AU”）替换为新用户的代号。
-如果服务器上有多个用户，每个用户都需要执行一次`psolve_reset`。
+安装SGDASS需要较新的gcc和gfortran（8.0.0及更高版本），更低的版本可能无法工作。
+SGDASS提供了安装新版本gcc/g++/gfortran的方法，因此，这里也建议对这些编译器进行编译安装。
 
-## 结语
+## II. 安装前的准备
 
-写到这里，整个安装过程近乎完成。
-如果将来我遇到了新的安装问题，我将会在这里更新。
-像`Calc/Solve`和`pSolve`这样非常小众的软件包，维护有限，用户手册也不多，
-安装时遇到的问题很多且没有现成的解决方案，初学者常止步于安装这一步。
-这一点我自己是深有体会的。
-Leonid在方便用户安装他的软件包方面做了很好的示范，我在这里也分享我的一点经验，
-希望可以帮到国内的同行。
+首先要创建相应的工作目录。
+SGDASS使用固定的目录名称，而且这些目录均在根目录下。
+因此，需要创建这些目录或设置软符号链接。
+这里推荐的是第二种。
+首先要设置SGDASS的根目录：
+
+```
+sgdass_home="YOUR_DIRECTORY" 
+```
+
+然后运行下列代码
+
+```
+#!bin/bash
+
+dirs=("apr" "auto" "cont" "dist" "images" "image_orig" "incoming" "l0" "l1a" \
+    "l1b" "l2" "l3" "logs" "opt64" "progs" "scr" "sde" "sol" "vlbi" "imls")
+
+for dir in ${dirs[@]};
+do
+    mkdir ${sgdass_home}/${dir}
+    sudo rm /${dir}
+    sudo ln -s ${sgdass_home}/${dir} /${dir}
+done
+
+mkdir ${sgdass_home}/apr/eop       # apriori Earth orientation paramers
+mkdir ${sgdass_home}/apr/eph       # apriori ephemerides
+mkdir ${sgdass_home}/apr/iono      # apriori ionosphere data
+mkdir ${sgdass_home}/apr/load_bds  # apriori mass loading time series in bindisp format
+mkdir ${sgdass_home}/apr/load_hps  # apriori mass loading harmonic variations
+mkdir ${sgdass_home}/apr/psolve    # apriori files for psolve
+mkdir ${sgdass_home}/apr/sou       # apriori source positions
+mkdir ${sgdass_home}/apr/spd       # apriori station path delays
+mkdir ${sgdass_home}/apr/sta       # apriori station positions
+mkdir ${sgdass_home}/apr/temp      # apriori temporary files
+mkdir ${sgdass_home}/l2/gvf        # Level 2 VLBI data in GVF format
+mkdir ${sgdass_home}/l2/vda        # Level 2 VLBI data in vgosda format
+mkdir ${sgdass_home}/l2/vdb        # Level 2 VLBI data in vgosdb format
+mkdir ${sgdass_home}/logs/sgdass              # logs from sgdass installation
+mkdir ${sgdass_home}/scr/pima                 # PIMA related files created during processing experiments.
+mkdir ${sgdass_home}/scr/psolve               # temporary files created by psolve
+mkdir ${sgdass_home}/scr/psolve/cgm_dir       # auxilliary combined glboal matrices created by psolve
+mkdir ${sgdass_home}/scr/psolve/tpd           # auxilliary files with path delay created by psolve
+mkdir ${sgdass_home}/scr/psolve/spool_dir     # listing of solutions generated by psolve
+mkdir ${sgdass_home}/scr/psolve/sub_matrices  # auxilliary temporary files created by psolve
+mkdir ${sgdass_home}/scr/psolve/work_dir      # auxilliary files by psolve
+mkdir ${sgdass_home}/sol/heo                  # High frequency Earth Orientation parameter VLBI solutions
+mkdir ${sgdass_home}/sol/qua                  # Quarterly VLBI solutions
+mkdir ${sgdass_home}/sol/rewei                # Reweighting VLBI solutions
+mkdir ${sgdass_home}/sol/rfc                  # astrometric VLBI solutions
+mkdir ${sgdass_home}/vlbi/vtd_data            # data files for VTD
+mkdir ${sgdass_home}/imls/oper_model          # IMLS operational models
+mkdir ${sgdass_home}/imls/devel_model         # IMLS development models
+```
+
+在[Space Geodesy Data Analysis Software System (astrogeo.org)](http://astrogeo.org/sgdass/)页面下载软件包，并将其保存在`${sgdass_home}/incoming`下：
+
+```
+cd ${sgdass_home}/incoming
+wget http://astrogeo.org/data_archive/sgdass-20231122.tar
+```
+
+需要将上面命令行中的`sgdass-20231122.tar`替换成最新的版本。
+在`${sgdass_home}/progs`下进行解压：
+
+```
+cd ${sgdass_home}/progs
+tar -xvf ../incoming/sgdass-20231122.tar
+```
+
+软件包中包括：
+
+- 第三方软件的源代码；
+- SGDASS安装包；
+- 安装配置示例文件。
+
+在`~/.cshrc`（如果该文件，则需要创建新文件）中添加一行
+
+```
+setenv LD_LIBRARY_PATH /opt64/lib:/opt64/lib64:/usr/lib64:/usr/lib
+```
+
+### III. 安装编译器和cmake
+
+通过编译源代码，将gcc和gfortran安装在/opt64目录下。
+在`${sgdass_home}/progs/sgdass`下，复制gcc安装配置示例文件，将新文件命名为`gcc_linux.cnf`（任意名字都可以）:
+
+```
+cd ${sgdass_home}/progs/sgdass
+cp example_gcc_linux.cnf gcc_linux.cnf
+```
+
+打开`gcc_linux.cnf`，根据实际情况进行修改。通常情况下，不需要做任何修改或只需更改`num_proc`定义。
+运行命令：
+
+```
+sgdass_install.py -c gcc_linux.cnf build all
+```
+
+## IV. 安装
+
+同样地，SGDASS的安装过程也是由配置文件控制，示例文件为example_sgdass_linux.cnf。复制该文件：
+
+```
+cp example_sgdass_linux.cnf sgdass_linux.cnf
+```
+
+检查并根据机器实际情况进行修改。
+**注意：配置文件中软件包的顺序很重要。
+此外，SGDASS的安装需要在`tcsh`中进行。**
+
+自动安装的命令为
+
+```
+sgdass_install.py -c sgdass_linux.cnf build       all
+sgdass_install.py -c sgdass_linux.cnf postinstall all
+```
+
+整个过程可能需要花费相当长的时间（从几小时到几天不等）。
+
+## V. 安装后的设置
+
+在`$HOME/.login`文件中添加以下定义（假设使用tcsh）：
+
+```
+limit coredumpsize     0
+limit stacksize        8000000
+limit maxproc          16384
+limit descriptors      2048
+setenv GOMP_STACKSIZE  2000000
+```
+
+## VI. 说明
+
+需要指出的是，在安装过程中也许会遇到其他问题。
+“[安装SGDASS可能遇到的问题及解决方案](https:liuniu.fun/blogs/sgdass_installation_notes.html)”一文对这些问题进行了总结，欢迎参考。

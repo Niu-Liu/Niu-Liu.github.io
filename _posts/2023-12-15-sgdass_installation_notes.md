@@ -1,7 +1,7 @@
 ---
 layout: post-lemonchann
 title:  "安装SGDASS可能遇到的问题及解决方案"
-date: 2022-12-15
+date: 2023-12-15
 permalink: /blogs/sgdass_installation_notes.html
 tags:
   - software package
@@ -23,18 +23,6 @@ SGDASS的官网地址为：[http://astrogeo.org/sgdass/](http://astrogeo.org/sgd
 并写了自动化安装脚本`sgdass_install.py`，
 其目的我想也是为了简化用户的安装过程，省去不必要的麻烦。
 即使这样，我在安装的时候仍遇到了问题，现记录如下，以作为安装教程的补充。
-
-## 支持系统
-
-Leonid的安装教程中提到
-
-> SGDASS supports Linux and MACOS.
->
-> Disclaimer: MACOS installation was not recently checked and may be broken.
-
-而在与Leonid的讨论中得知的实际情况是：
-截止到目前（2022年1月29日），SGDASS并不支持MACOS。
-但是，Leonid最近得到了一台苹果笔记本，因此，他会在未来的3到4周内测试SGDASS在MacOS上的安装。
 
 ## 编译器问题
 
