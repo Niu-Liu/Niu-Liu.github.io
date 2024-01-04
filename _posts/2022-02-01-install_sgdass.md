@@ -173,7 +173,7 @@ cp example_gcc_linux.cnf gcc_linux.cnf
 运行命令：
 
 ```
-sgdass_install.py -c gcc_linux.cnf build all
+python3 sgdass_install.py -c gcc_linux.cnf build all
 ```
 
 ## IV. 安装
@@ -191,8 +191,8 @@ cp example_sgdass_linux.cnf sgdass_linux.cnf
 自动安装的命令为
 
 ```
-sgdass_install.py -c sgdass_linux.cnf build       all
-sgdass_install.py -c sgdass_linux.cnf postinstall all
+python3 sgdass_install.py -c sgdass_linux.cnf build       all
+python3 sgdass_install.py -c sgdass_linux.cnf postinstall all
 ```
 
 整个过程可能需要花费相当长的时间（从几小时到几天不等）。
