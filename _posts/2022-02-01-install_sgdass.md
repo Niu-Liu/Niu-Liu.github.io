@@ -64,7 +64,7 @@ yum install tcsh, g++, perl-File-Compare, perl-FindBin, libX11-devel, libXp-deve
 
 ```
 
-sudo apt-get install tcsh, gcc, gfortran, cmake, g++, libx11-dev, libxt-dev, x11-xserver-utils, imagemagick, autoconf, m4
+sudo apt-get install tcsh gcc gfortran cmake g++ libx11-dev libxt-dev x11-xserver-utils imagemagick autoconf m4
 
 ```
 
@@ -164,7 +164,8 @@ umask 002
 在`~/.cshrc`（如果该文件，则需要创建新文件）中添加一行
 
 ```
-setenv LD_LIBRARY_PATH /opt64/lib:/opt64/lib64:/usr/lib64:/usr/lib
+setenv LD_LIBRARY_PATH "/opt64/lib:/opt64/lib64:/usr/lib64:/usr/lib"
+setenv PATH "/opt64/bin:/opt64/psolve/bin:${PATH}"
 ```
 
 ### III. 安装编译器和cmake
