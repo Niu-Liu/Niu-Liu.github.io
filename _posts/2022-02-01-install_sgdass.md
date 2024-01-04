@@ -153,6 +153,12 @@ tar -xvf ../incoming/sgdass-20231122.tar
 - SGDASS安装包；
 - 安装配置示例文件。
 
+设置用户组权限
+
+```
+umask 002
+```
+
 在`~/.cshrc`（如果该文件，则需要创建新文件）中添加一行
 
 ```
@@ -160,6 +166,8 @@ setenv LD_LIBRARY_PATH /opt64/lib:/opt64/lib64:/usr/lib64:/usr/lib
 ```
 
 ### III. 安装编译器和cmake
+
+**注意：编译器和SGDASS的安装需要在`tcsh`中进行。**
 
 通过编译源代码，将gcc和gfortran安装在/opt64目录下。
 在`${sgdass_home}/progs/sgdass`下，复制gcc安装配置示例文件，将新文件命名为`gcc_linux.cnf`（任意名字都可以）:
@@ -169,7 +177,7 @@ cd ${sgdass_home}/progs/sgdass
 cp example_gcc_linux.cnf gcc_linux.cnf
 ```
 
-打开`gcc_linux.cnf`，根据实际情况进行修改。通常情况下，不需要做任何修改或只需更改`num_proc`定义。
+打开`gcc_linux.cnf`，根据实际情况进行修改。通常情况下，不需要做任何修改（**Leonid将其设为all**）或只需更改`num_proc`定义。
 运行命令：
 
 ```
@@ -185,8 +193,8 @@ cp example_sgdass_linux.cnf sgdass_linux.cnf
 ```
 
 检查并根据机器实际情况进行修改。
-**注意：配置文件中软件包的顺序很重要。
-此外，SGDASS的安装需要在`tcsh`中进行。**
+
+**注意：配置文件中软件包的顺序很重要，不可以修改。**
 
 自动安装的命令为
 
