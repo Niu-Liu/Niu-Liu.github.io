@@ -64,7 +64,7 @@ yum install tcsh, g++, perl-File-Compare, perl-FindBin, libX11-devel, libXp-deve
 
 ```
 
-sudo apt-get install tcsh, gcc, gfortran, cmake, g++, libx11-dev, libxt-dev, x11-xserver-utils, imagemagick
+sudo apt-get install tcsh, gcc, gfortran, cmake, g++, libx11-dev, libxt-dev, x11-xserver-utils, imagemagick, autoconf, m4
 
 ```
 
@@ -98,8 +98,10 @@ dirs=("apr" "auto" "cont" "dist" "images" "image_orig" "incoming" "l0" "l1a" \
 for dir in ${dirs[@]};
 do
     mkdir ${sgdass_home}/${dir}
+    chmod 775 ${sgdass_home}/${dir}
     sudo rm /${dir}
     sudo ln -s ${sgdass_home}/${dir} /${dir}
+    chmod 775 /${dir}
 done
 
 mkdir ${sgdass_home}/apr/eop       # apriori Earth orientation paramers
