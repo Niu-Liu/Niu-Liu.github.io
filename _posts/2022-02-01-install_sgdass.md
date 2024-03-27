@@ -180,7 +180,7 @@ cd ${sgdass_home}/progs/sgdass
 cp example_gcc_linux.cnf gcc_linux.cnf
 ```
 
-打开`gcc_linux.cnf`，根据实际情况进行修改。通常情况下，不需要做任何修改（**Leonid将其设为all**）或只需更改`num_proc`定义。
+打开`gcc_linux.cnf`，根据实际情况进行修改。通常情况下，不需要做任何修改或只需更改`num_proc`变量的值（**Leonid已经将其设为all**）。
 运行命令：
 
 ```
@@ -197,7 +197,7 @@ cp example_sgdass_linux.cnf sgdass_linux.cnf
 
 检查并根据机器实际情况进行修改。
 
-**注意：配置文件中软件包的顺序很重要，不可以修改。**
+**注意：配置文件中软件包的顺序很重要，不可以随意修改。**
 
 自动安装的命令为
 
@@ -206,11 +206,15 @@ python3 sgdass_install.py -c sgdass_linux.cnf build       all
 python3 sgdass_install.py -c sgdass_linux.cnf postinstall all
 ```
 
+如果机器上已经安装过SGDASS，那么在执行安装指令之前，需要先关闭SGDASS（尤其是pSolve）的所有进程。
 整个过程可能需要花费相当长的时间（从几小时到几天不等）。
 
 ## V. 安装后的设置
 
-在`$HOME/.login`文件中添加以下定义（假设使用tcsh）：
+建议使用tcsh来启动SGDASS里面的所有程序。
+假设使用tcsh，那么建议作如下配置。
+
+- 在`~/.login`中添加以下语句：
 
 ```
 limit coredumpsize     0
@@ -218,6 +222,34 @@ limit stacksize        8000000
 limit maxproc          16384
 limit descriptors      2048
 setenv GOMP_STACKSIZE  2000000
+```
+
+如果没有`~/.login`这一文件，请新建一个。后面同理。
+
+- 在`~/.Xdefaults`中添加以下语句：
+
+```
+pgxwin.Win.iconize:     True
+pgxwin.Win.geometry: 1080x750+0+50
+pgxwin.server.visible: True
+pgxwin.Win.maxColors:   230
+```
+
+其中，第二行确定了`DIAGI`软件的窗口尺寸，可以根据实际的显示器尺寸进行修改。
+
+- 在`~/.tcshrc`中添加以下语句：
+
+```
+# For SGDASS
+setenv PGPLOT_DEV  "/XW"                      # tells that default is to print
+                                              # the graphics to the screen
+setenv PGPLOT_XW_MARGIN "1.0"                 # sets display margins
+setenv PGPLOT_XSIZE_MM 400.0                  # specifies with width of the PGPLOT window
+
+setenv LD_LIBRARY_PATH /opt64/lib:/opt64/lib64:/usr/lib:/usr/lib64
+setenv PATH "/opt64/bin:/opt64/psolve/bin:${PATH}"
+setenv PSOLVE_SAVE_DIR "/opt64/share/psolve"
+xrdb -merge ~/.Xdefaults
 ```
 
 ## VI. 说明
