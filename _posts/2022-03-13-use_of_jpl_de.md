@@ -4,7 +4,8 @@ title:  "JPL DE 历表的使用"
 date: 2022-03-13
 permalink: /blogs/use_of_jpl_de.html
 tags:
-  - astronomical tools
+  - software package
+  - Ephemerides
 comments: true
 author: Neo
 usemathjax: true
