@@ -20,7 +20,7 @@ author: Neo
 
 ## 前期准备
 
-将软件包`SOLVE_mk5_20200123.tar`打包之后，`Calc/Solve`的安装说明在压缩包的help.zip中，对应的文件有三个，为：INSTALL、INSTALL.hpu和NSTALL.linux。由于我使用的是Linux系统，所以只需要参考INSTALL和INSTALL.linux。顺序是先依照INSTALL.linux安装一些必要的函数库和工具，之后再依照INSTALL中的说明安装Calc/Solve。
+将软件包`SOLVE_mk5_20200123.tar`解压。`Calc/Solve`的安装说明在压缩包的help.zip中，对应的文件有三个，为：INSTALL、INSTALL.hpu和NSTALL.linux。由于我使用的是Linux系统，所以只需要参考INSTALL和INSTALL.linux。顺序是先依照INSTALL.linux安装一些必要的函数库和工具，之后再依照INSTALL中的说明安装Calc/Solve。
 
 ***需要注意的是，这些安装说明文档是早年写的，适用于以前的版本。现在编译`Calc/Solve`不需要严格遵照这些说明文档，例如，ATLAS库函数不是必须的，我的安装过程就没有这一步。***
 
@@ -341,7 +341,6 @@ wget  https://downloads.unidata.ucar.edu/netcdf-fortran/${FVER}/netcdf-fortran-$
 cd $PREFIX/dist
 tar -xvzf $PREFIX/incoming/netcdf-fortran-${FVER}.tar.gz
 tar -xvzf $PREFIX/incoming/netcdf-c-${CVER}.tar.gz
-
 
 install_c
 install_f

@@ -8,6 +8,7 @@ tags:
   - software package
 comments: true
 author: Neo
+usemathjax: true
 ---
 
 这里记录下有关Solve的一些用法，方便自己和他人查阅。
