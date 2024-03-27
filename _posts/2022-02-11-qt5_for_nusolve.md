@@ -23,7 +23,7 @@ sudo apt install qt5-default
 ```
 
 可惜的是，这对于Ubuntu 21.10来说属于是过期攻略了。
-因此，在Ubuntu 21.10的仓库里面，Qt5库函数的名称改变了，新的名称以及对应的安装指令如下：
+因为，在Ubuntu 21.10的仓库里面，Qt5库函数的名称改变了，新的名称以及对应的安装指令如下：
 
 ```
 sudo apt install qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools 
