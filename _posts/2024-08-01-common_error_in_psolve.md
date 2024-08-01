@@ -2,7 +2,7 @@
 layout: post-lemonchann
 title:  "pSolve常见错误分析及解决方案"
 date: 2022-01-31
-permalink: /blogs/commen_error_in_psolve.html
+permalink: /blogs/common_error_in_psolve.html
 tags:
   - vlbi
 comments: true
