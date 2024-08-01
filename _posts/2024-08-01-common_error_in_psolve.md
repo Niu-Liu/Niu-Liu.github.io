@@ -121,7 +121,7 @@ RUN_PROG: process /opt64/psolve/bin/GLOBL 0 42 0 0 AU abnormally terminated with
 ```
 setenv COND_MAX 1D12
 ```
-来增大conditional number的阈值，使得解算可以运行，然后再根据解算结果来分析问题来源。
+来增大conditional number的阈值，使得解算可以顺利进行，然后再根据解算结果来具体分析问题来源。
 可能的问题来源有：
 - 某个台站的钟跳设置过多 
 - 某两个测站距离很近。此时，需要移除这两个测站组成的基线。
