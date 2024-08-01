@@ -45,8 +45,8 @@ Graduate course at [University of Chinese Academy of Sciences, Nanjing Campus](h
 
 Please find the lectures in PDF format via links below:
 
-[Lecture 07](http://niu-liu.github.io/files/lecture/Lecture_07.pdf)
-[Lecture 08](http://niu-liu.github.io/files/lecture/Lecture_08.pdf)
+[Lecture 07](http://niu-liu.github.io/files/lectures/Lecture_07.pdf)
+[Lecture 08](http://niu-liu.github.io/files/lectures/Lecture_08.pdf)
 
 
 ### Spring 2020: *Astronomical Reference Systems* (in Chinese)

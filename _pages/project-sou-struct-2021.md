@@ -50,7 +50,7 @@ Different from previous studies solely based on the position time series, we wil
       <li>
           <p> <u>Liu N.</u>,
           Lambert S. B., Arias E. F., Liu J. -C., Zhu Z.,
-          <a href="{{ "/files/paper/aa42632-21.pdf" | prepend: site.baseurl | prepend: site.url }}">Evaluation of the ICRF stability from a position time series analysis</a>,
+          <a href="{{ "/files/papers/aa42632-21.pdf" | prepend: site.baseurl | prepend: site.url }}">Evaluation of the ICRF stability from a position time series analysis</a>,
           <i>A&amp;A</i> 659, A75 (2022).
           </p>
       </li>
@@ -58,7 +58,7 @@ Different from previous studies solely based on the position time series, we wil
       <li>
           <p> <u>Liu N.</u>,
           Lambert S. B., Charlot P., Zhu Z., Liu J. -C., Jiang N., Wan X. -S., Ding C. -Y.,
-          <a href="{{ "/files/paper/aa38179-20.pdf" | prepend: site.baseurl | prepend: site.url }}">Comparison of multifrequency positions of extragalactic sources from ICRF3 and Gaia EDR3</a>,
+          <a href="{{ "/files/papers/aa38179-20.pdf" | prepend: site.baseurl | prepend: site.url }}">Comparison of multifrequency positions of extragalactic sources from ICRF3 and Gaia EDR3</a>,
           <i>A&amp;A</i> 652, A87 (2021).
           </p>
       </li>
