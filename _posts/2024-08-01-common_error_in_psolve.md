@@ -23,11 +23,8 @@ author: Neo
 ```
 gvf_import.py: Failure to transform vda data file /l2/vda/2022/20220203_a.vda.gz to gvf format
 gvf_import.py: Failed command: gvf_transform -to_binary /dev/shm/20220203_a.vda @a OBS
-$$$ IUER=4441 GVH_READ_AGV  "Error in parsing of the 11582-th line of VDA
-database file /dev/shm/20220203_a.vda -- the number of TEXT records exceeded
-the limit 8192" $$$
-$$$ IUER=1823 GVF_TRANSFORM  "Error in an atttempt to read input database file
-/dev/shm/20220203_a.vda" $$$
+$$$ IUER=4441 GVH_READ_AGV  "Error in parsing of the 11582-th line of VDA database file /dev/shm/20220203_a.vda -- the number of TEXT records exceeded the limit 8192" $$$
+$$$ IUER=1823 GVF_TRANSFORM  "Error in an atttempt to read input database file /dev/shm/20220203_a.vda" $$$
 ```
 
 这是nuSolve软件以前的一个漏洞：nuSolve将vgosDa格式向vgosDb格式转换过程中的所有警告信息都写入了数据（vda）文件中。这些警告信号有时候有好几百行之多，因此超过了TEXT记录容量的上限。现在该错误已被修复。
