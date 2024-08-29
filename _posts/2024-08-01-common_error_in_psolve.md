@@ -94,6 +94,17 @@ NYALDBBC是一个测试站名，并非物理上独立的观测站，因此在测
 如何解决这个问题？首先在先验文件中（即/apr/sta/glo.sit和/apr/sta/glo.vel），复制相关测站（如NYALES20）的数据到新的一行，将测站名称改为测试站名，再重新加载数据。
 需要注意的是，**在数据分析中，要把测试站去掉。**
 
+### 2.3 台站的板块信息缺失问题
+
+```
+ADJST: ERROR 216 Site NYALDBBC missing in list of sites and their tectonic plates. Add to list in /opt64/share/psolve/sitpl.dat
+
+PAUSE. Hit ‹CR> to continue....
+```
+
+解决方案已经在输出内容中提示出来了。
+
+
 ## 3. 数据解算
 
 ### 3.1 Conditional number过大
