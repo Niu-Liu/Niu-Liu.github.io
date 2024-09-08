@@ -64,7 +64,7 @@ yum install tcsh, g++, perl-File-Compare, perl-FindBin, libX11-devel, libXp-deve
 
 ```
 
-sudo apt-get install tcsh gcc gfortran cmake g++ libx11-dev libxt-dev x11-xserver-utils imagemagick autoconf m4
+sudo apt-get install tcsh gcc gfortran cmake g++ libx11-dev libxt-dev x11-xserver-utils imagemagick autoconf m4 libtirpc-dev
 
 ```
 
