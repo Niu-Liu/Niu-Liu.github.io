@@ -7,6 +7,12 @@ author_profile: true
 
 {% include base_path %}
 
+### 2024
+---
+* The Galactic aberration and its implication on the celestial reference frame, **Invited talk**, Rundwon Colloquium on Computational Physics, 18 September 2024, BRIN, Indonesia.
+
+* Tying the extragalactic and planetary ephemeris reference frames based on pulsar astrometry, Contributed talk, 13th General Meeting of the International VLBI Service for Geodesy and Astrometry (IVS), 8 March 2024, Japan.
+
 ### 2023
 ---
 * Tie of Celestial Reference Frames in the Age of Microarcsecond Precision, **Invited talk**, SHAO astrophysics colloquium, 13 October, Shanghai,
