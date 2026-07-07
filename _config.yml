@@ -1,7 +1,7 @@
 # # ----------------- Copied from particle template -----------------
 # Site settings
 title: "Niu Liu (刘牛)"
-hometitle: "Welcome to homepage of Niu Liu (刘牛)"
+hometitle: "Niu Liu (刘牛)"
 description: "My personal website"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://liuniu.fun" 
@@ -9,10 +9,10 @@ url: "https://liuniu.fun"
 # User settings
 username: "Niu Liu"
 user_description: |
-  I am interested in measuring the position of celestial objects with
-  an accuracy of extremely high level and thus construct a 
-  fully unified multifrequency microarcsecond celestial reference frame.
-user_title: "Reseacher in Astronomy"
+  My research focuses on high-precision astrometry, with particular
+  interest in measuring celestial positions at the microarcsecond level
+  and constructing a unified multi-frequency celestial reference frame.
+user_title: "Researcher in Astronomy"
 avatar: "bio.png"
 
 # Google-analytics
@@ -30,7 +30,7 @@ author:
   city             : "Nanjing"
   employer         : "Nanjing University"
   employer_url     : "https://astronomy.nju.edu.cn/EN/index.html"
-  email            : "secret"
+  # email            : ""
   researchgate     : "https://www.researchgate.net/profile/Niu-Liu?ev=hdr_xprf"
   orcid            : "0000-0003-2778-002X"
   adslib           : "https://ui.adsabs.harvard.edu/user/libraries/EWTz-0tVSn6LqIz7ZgLMgg"
@@ -172,6 +172,7 @@ exclude:
   - Gruntfile.js
   - LICENSE
   - README
+  - README.md
   - Rakefile
   - assets/js/_main.js
   - assets/js/plugins
@@ -192,7 +193,8 @@ blogdescription: "Knowledge is for sharing."
 blogname: "Neo's blog"
 
 # 你的favicon（出现在浏览器tab上）图片URL，建议使用较小(64px × 64px)的图片
-favicon: https://raw.githubusercontent.com/Niu-Liu/Niu-Liu.github.io/master/assets/img/Headshot.ico
+# favicon: https://raw.githubusercontent.com/Niu-Liu/Niu-Liu.github.io/master/assets/img/Headshot.ico
+favicon: /assets/img/Headshot.ico
 
 # Tabs in header. There are 'Blog', 'About', 'Archive', 'Tags'
 # and URL Link(e.g. 'Theme' tab below) tabs. If you don't need one, just delete
