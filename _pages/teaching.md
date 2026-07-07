@@ -5,60 +5,55 @@ permalink: /teaching/
 author_profile: true
 ---
 
-{% include base_path %}
+## Instructor
+
+### Spring 2025/2026: Spherical Astronomy
+
+Undergraduate course, [School of Astronomy & Space Science, Nanjing University](https://astronomy.nju.edu.cn/)
 
 ## Co-Instructor
 
-### Spring 2022: *Astronomical Reference Systems* (in Chinese)
----
-Graduate course at [School of Astronomy & Space Science, Nanjing University](https://astronomy.nju.edu.cn/)
+### Spring 2026: Astronomical Reference System
 
-- Assisted the main instructor to develop all course content for 20 graduate students
-- Lectured for 10% of the class meetings (approximately 10 hours)
-- Focused course on topics related to fundamentals of VLBI and space astrometry
+Graduate course, [School of Astronomy & Space Science, Nanjing University](https://astronomy.nju.edu.cn/)
+Co-taught with Prof. Jia-Cheng Liu.
 
+- Lectured for more than 60% of the class meetings.
+
+### Spring 2022/2024: Astronomical Reference System
+
+Graduate course, [School of Astronomy & Space Science, Nanjing University](https://astronomy.nju.edu.cn/)
+Co-taught with Prof. Zi Zhu.
+
+- Assisted the main instructor in developing course content for about 20 graduate students.
+- Lectured for 10% of the class meetings.
+- Focused on topics related to the fundamentals of VLBI and space astrometry.
 
 ## Teaching Assistant
 
-### Autumn 2022: *Astronomical Reference Systems* (in Chinese)
+### Autumn 2022: Astronomical Reference System
 
----
-Graduate course at [University of Chinese Academy of Sciences, Nanjing Campus](https://www.ucas.ac.cn/)
+Graduate course, [University of Chinese Academy of Sciences, Nanjing Campus](https://www.ucas.ac.cn/)
 
+### Autumn 2021: Astronomical Reference System
 
-### Autumn 2021: *Astronomical Reference Systems* (in Chinese)
+Graduate course, [University of Chinese Academy of Sciences, Nanjing Campus](https://www.ucas.ac.cn/)
 
----
-Graduate course at [University of Chinese Academy of Sciences, Nanjing Campus](https://www.ucas.ac.cn/)
+- Chapter 7: International Celestial Reference System
 
-- Chapter 7. International Celestial Reference System (ICRS)
+  - Introduced the basics of VLBI astrometry, the adoption of the ICRS, the construction of the ICRF, and the assessment of ICRF properties.
+- Chapter 8: <i>Gaia</i> Space Astrometry
 
-    I introduce to basics for the VLBI astrometry,
-    the adoption of the ICRS and the construction of the ICRF,
-    as well as the assessment of the ICRF properties.
+  - Introduced an overview of the <i>Gaia</i> mission, the properties of the <i>Gaia</i> celestial reference frame, and future astrometric missions proposed in the <i>Gaia</i> era.
 
-- Chapter 8. *Gaia* Space Astrometry
+### Spring 2020: Astronomical Reference System
 
-    I introduce the overview of *Gaia* mission,
-    properties of the *Gaia* celestial reference frame,
-    and the future astrometric missions proposed in the *Gaia*-era.
+Graduate course, [School of Astronomy & Space Science, Nanjing University](https://astronomy.nju.edu.cn/)
 
-Please find the lectures in PDF format via links below:
+- Graded assignments and tests for about 20 graduate students.
 
-[Lecture 07](http://niu-liu.github.io/files/lectures/Lecture_07.pdf)
-[Lecture 08](http://niu-liu.github.io/files/lectures/Lecture_08.pdf)
+### Spring 2016: Spherical Astronomy
 
+Undergraduate course, [School of Astronomy & Space Science, Nanjing University](https://astronomy.nju.edu.cn/)
 
-### Spring 2020: *Astronomical Reference Systems* (in Chinese)
-
----
-Graduate course at [School of Astronomy & Space Science, Nanjing University](https://astronomy.nju.edu.cn/)
-
-- Graded assignments and tests for 20 graduate students
-
-### Spring 2016: *Spherical Astronomy* (in Chinese)
-
----
-Graduate course at [School of Astronomy & Space Science, Nanjing University](https://astronomy.nju.edu.cn/)
-
-- Graded assignments and tests for 30 undergraduate students
+- Graded assignments and tests for about 30 undergraduate students.
