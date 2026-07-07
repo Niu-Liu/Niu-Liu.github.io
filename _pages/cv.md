@@ -68,4 +68,3 @@ A PDF version of my CV is available [here](https://box.nju.edu.cn/f/b28bc67c8bd6
 - Astronomical Society of Jiangsu Province
 - Chinese Astronomical Society
 - International Astronomical Union (IAU), Junior Member
-
