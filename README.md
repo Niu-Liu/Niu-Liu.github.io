@@ -1,9 +1,7 @@
-# Personal webpage
+# Personal Webpage
 
-[My personal web pages](https://niu-liu.github.io/) based 
-on a Github Pages template from 
-[academicpages](https://github.com/academicpages/academicpages.github.io),
-[lemonchann](https://github.com/lemonchann/lemonchann.github.io),
-and [particle](https://github.com/nrandecker/particle).
+This is my personal academic website: https://liuniu.fun.
 
-I am still working on it, so there would be some problems if you visit it at this moment.
+The website is built with GitHub Pages and combines elements from several templates, including [academicpages](https://github.com/academicpages/academicpages.github.io), [lemonchann](https://github.com/lemonchann/lemonchann.github.io), and [particle](https://github.com/nrandecker/particle).
+
+The site is under active development and may still be updated from time to time.
