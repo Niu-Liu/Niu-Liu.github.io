@@ -34,7 +34,7 @@ author:
   researchgate     : "https://www.researchgate.net/profile/Niu-Liu?ev=hdr_xprf"
   orcid            : "0000-0003-2778-002X"
   adslib           : "https://ui.adsabs.harvard.edu/user/libraries/EWTz-0tVSn6LqIz7ZgLMgg"
-# locale                   : "en-US"
+locale                   : "en-US"
 encoding: "utf-8"
 title_separator          : "-"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
@@ -91,32 +91,6 @@ defaults:
     values:
       layout: archive
       author_profile: true
-  # _teaching
-  - scope:
-      path: ""
-      type: teaching
-    values:
-      layout: single
-      author_profile: true
-      share: true
-      comments: true
-  # _publications
-  - scope:
-      path: ""
-      type: publications
-    values:
-      layout: single
-      author_profile: true
-      share: true
-      comments: true
-  # _talks
-  - scope:
-      path: ""
-      type: talks
-    values:
-      layout: talk
-      author_profile: true
-      share: true
 
 # Reading Files
 include:
@@ -167,11 +141,11 @@ blog_navigation:
   - name: 首页
     url: /
   - name: 博客
-    url: /blogs
+    url: /blogs/
   - name: 归档
-    url: /archive
+    url: /archive/
   - name: 标签
-    url: /tags
+    url: /tags/
 
 # Pagination
 paginate: 8
@@ -182,8 +156,6 @@ footer-text: "© 2026 Niu Liu"
 permalink: /:title/
 paginate_path: /blogs/page:num/
  
-theme: jekyll-theme-minimal
-
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
   
 # Conversion

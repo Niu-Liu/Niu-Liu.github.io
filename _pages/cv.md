@@ -22,19 +22,19 @@ A PDF version of my CV is available [here](https://box.nju.edu.cn/f/b28bc67c8bd6
 
 - Ph.D. in Astronomy, [School of Astronomy and Space Science, Nanjing University](https://astronomy.nju.edu.cn/EN/index.html), 2015–2020
   Supervised by [Prof. Zi ZHU](https://astronomy.nju.edu.cn/EN/People/Professors/20200707/i113715.html).
-  Thesis: “[Overall properties of the ICRF and Gaia-CRF](https://scjg.cnki.net/kcms/detail/detail.aspx?filename=1021501297.nh&dbcode=CDFD&dbname=CDFD2021&v=)” in Chinese. English abstract available [here](http://www.twxb.org/twxb/article/abstract/20210612).
+  Thesis: “Overall properties of the ICRF and Gaia-CRF” in Chinese. 
 
 - Joint Ph.D. program, [SYRTE, Observatoire de Paris](https://syrte.obspm.fr/spip/?lang=en)
   Supervised by [Dr. Sébastien LAMBERT](http://syrte.obspm.fr/~lambert).
   Research topic: VLBI data analysis.
 
 - B.S. in Astronomy, [School of Astronomy and Space Science, Nanjing University](https://astronomy.nju.edu.cn/EN/index.html), 2011–2015
-  Supervised by [Dr. Jia-Cheng LIU](https://astronomy.nju.edu.cn/EN/People/AssociateProfessors/20200707/i113744.html).
+  Supervised by [Prof. Jia-Cheng LIU](https://astronomy.nju.edu.cn/EN/People/Professors/20200707/i113744.html).
   Thesis: “Improving the Precession-Nutation Model by VLBI Data.”
 
 ## Research and Work Experience
 
-- September 2023 – Present: [Assistant Professor, tenure-track](https://astronomy.nju.edu.cn/EN/People/Postdocs/20210604/i201572.html), Nanjing University
+- September 2023 – Present: [Assistant Professor, tenure-track](https://astronomy.nju.edu.cn/EN/People/AssistantProfessor/20260707/i400600.html), Nanjing University
   Research on astronomical reference systems, high-precision astrometry, and astrophysical applications of celestial reference frames.
 
 - September 2020 – August 2023: Yu-Xiu Young Scholar Fellow, Nanjing University
