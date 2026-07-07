@@ -1,12 +1,15 @@
-{% include base_path %}
-
 <meta charset="utf-8">
 
 {% include seo.html %}
 
-<link href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
+{% if site.atom_feed.path %}
+  {% assign feed_path = site.atom_feed.path %}
+{% else %}
+  {% assign feed_path = "/feed.xml" %}
+{% endif %}
 
-<!-- http://t.co/dKP3o1e -->
+<link href="{{ feed_path | relative_url }}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
+
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +18,7 @@
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
 </script>
 
-<!-- For all browsers -->
-<link rel="stylesheet" href="{{ base_path }}/assets/css/academicmain.css">
+<link rel="stylesheet" href="{{ '/assets/css/academicmain.css' | relative_url }}">
+<link rel="shortcut icon" href="{{ site.favicon | relative_url }}">
 
 <meta http-equiv="cleartype" content="on">
