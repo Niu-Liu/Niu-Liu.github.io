@@ -2,28 +2,30 @@
   <header class="sidebar clearfix">
     <div class="site-info">
       {% if site.avatar %}
-        <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar | prepend: "/assets/img/"}}" width=80 ></a>
-      {% endif %} 
-      <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
+        <a href="{{ '/' | relative_url }}" class="site-avatar">
+          <img src="{{ '/assets/img/' | append: site.avatar | relative_url }}" width="80" alt="{{ site.username }}">
+        </a>
+      {% endif %}
+
+      <h1 class="site-name">
+        <a href="{{ '/blogs/' | relative_url }}">{{ site.blogname | default: site.username }}</a>
+      </h1>
+
       <p class="site-description">{{ site.blogdescription }}</p>
     </div>
   </header>
 
   <div class="navlist">
     <nav>
-      {% for nav in site.blog-navigation %}
-      {% if nav.url contains 'http://' or nav.url contains 'https://' %}
-      <a href="{{ nav.url }}">{{ nav.name }}</a>
-      {% else %}
-      <a href="{{ site.baseurl }}{{ nav.url }}">{{ nav.name }}</a>
-      {% endif %}
+      {% for nav in site.blog_navigation %}
+        <a href="{% if nav.url contains 'http://' or nav.url contains 'https://' %}{{ nav.url }}{% else %}{{ nav.url | relative_url }}{% endif %}">
+          {{ nav.name }}
+        </a>
       {% endfor %}
     </nav>
   </div>
 
   <div class="wrapper-footer-desktop">
-    <footer class="footer">
-      {% include footer.html %}
-    </footer>
+    <p>&copy; {{ site.time | date: "%Y" }} {{ site.username }}</p>
   </div>
 </div>

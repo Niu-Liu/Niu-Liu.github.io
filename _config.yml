@@ -63,9 +63,6 @@ whitelist:
     
 # Main Navigation
 main_navigation:
-  - title: "CV"
-    url: /cv/
-
   - title: "Publications"
     url: /publications/
 
@@ -78,8 +75,8 @@ main_navigation:
   - title: "Teaching"
     url: /teaching/
 
-#  - title: "Portfolio"
-#   url: /portfolio/
+  - title: "CV"
+    url: /cv/
 
   - title: "Blog"
     url: /blogs/
@@ -112,15 +109,6 @@ defaults:
       author_profile: true
       share: true
       comments: true
-#   # _portfolio
-#   - scope:
-#       path: ""
-#       type: portfolio
-#     values:
-#       layout: single
-#       author_profile: true
-#       share: true
-#       comment: true
   # _talks
   - scope:
       path: ""
@@ -166,7 +154,7 @@ keep_files:
 
 # ----------------- Copied from lemonchann template -----------------
 blogdescription: "Knowledge is for sharing."
-blogname: "Neo's blog"
+blogname: "Niu Liu's Blog"
 
 # 你的favicon（出现在浏览器tab上）图片URL，建议使用较小(64px × 64px)的图片
 # favicon: https://raw.githubusercontent.com/Niu-Liu/Niu-Liu.github.io/master/assets/img/Headshot.ico
@@ -175,7 +163,7 @@ favicon: /assets/img/Headshot.ico
 # Tabs in header. There are 'Blog', 'About', 'Archive', 'Tags'
 # and URL Link(e.g. 'Theme' tab below) tabs. If you don't need one, just delete
 # it from the list(Delete '- name: ' and 'url: ', too!)
-blog-navigation:
+blog_navigation:
 # - name: 首页
   - name: Home
     url: /
