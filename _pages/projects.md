@@ -3,20 +3,17 @@ layout: archive
 title: "Projects"
 permalink: /projects/
 author_profile: true
----
+--------------------
 
-{% include base_path %}
+## Ongoing Projects
 
-## Ongoing 
----
+- High-precision Core-shift Measurements for a Large Sample of ICRF3 Sources and Systematics of Multi-waveband Reference Frames  
+  <i>PI</i>, National Natural Science Foundation of China, Major Program, January 2025 – December 2029.
 
-* [Implication of source structure variability on the multiwavelength positions of extragalactic sources (河外源结构变化对多波段位置的影响)](/projects/project-nsfc-2021.html), *PI*, funded by National Natural Science Foundation of China (RMB 200, 000), 2022.01 -- 2023.12
+## Completed Projects
 
-* [Vector Spherical Harmonics (VSH) Analysis Tools](https://pypi.org/project/vsh-tools/), A python package for catalog analysis using vector spherical harmonics, not funded
+- [Source Structure Variability in Multi-wavelength Astrometry](/projects/source-structure/)  
+  <i>PI</i>, National Natural Science Foundation of China, January 2022 – December 2023.
 
-* [Fundamental Astrometric Catalog Tools (FACT)](https://pypi.org/project/fact4astro/), A python package for analyzing fundamental astrometric catalogs, not funded
-
-## Completed
-
-* [Investigation of frame-tie in the era of multiwavelength celestial reference frame (多波段参考架时代的参考架连接问题研究)](/projects/project-postdoc-2021.html), *PI*, funded by China Postdoctoral Science Foundation fellowship (RMB 80,000), 2021.09 -- 2023.08
-
+- [Frame Tie in the Era of Multi-wavelength Celestial Reference Frames](/projects/frame-tie/)  
+  <i>PI</i>, China Postdoctoral Science Foundation, September 2021 – August 2023.
