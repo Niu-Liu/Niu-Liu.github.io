@@ -4,219 +4,275 @@ title:  "SGDASS的安装教程"
 date: 2022-02-01
 permalink: /blogs/install_sgdass.html
 tags:
-  - software package
+  - software
   - vlbi
 comments: true
 toc: true
 author: Neo
+last_modified_at: 2026-07-07
 ---
 
-[SGDASS](http://astrogeo.org/sgdass/)全称为Space Geodesy Data Analysis Software System，是Leonid Petrov博士开发的空间测地数据分析软件套装。
-Leonid已经写了非常详细的[安装教程](http://astrogeo.org/data_archive/sgdass-20231122_INSTALL.txt)，并写了自动化安装脚本`sgdass_install.py`，其目的我想也是为了简化用户的安装过程，省去不必要的麻烦。
-本文试图在Leonid写的教程的基础上进行简化，以方便国内的同行安装SGDASS。
+
+[SGDASS](http://astrogeo.org/sgdass/) 全称为 Space Geodesy Data Analysis Software System，是 Leonid Petrov 博士开发的空间测地数据分析软件套装。SGDASS 主要用于甚长基线干涉测量（Very Long Baseline Interferometry, VLBI）数据分析，也可以作为空间测地数据处理流程的一部分。
+
+Leonid 已经写了非常详细的[官方安装说明](http://astrogeo.org/sgdass/)，并提供了自动化安装脚本 `sgdass_install.py`。自动化安装脚本的目的显然是尽量简化安装过程，减少用户手动处理依赖和配置的麻烦。本文试图在官方说明的基础上进行简化和补充，以方便国内同行安装 SGDASS。
+
+> 注：本文最初写于 2022 年，后根据 2023 年及之后的安装经验进行过更新。SGDASS 版本更新较快，安装前请务必以官方页面、安装包中的 `INSTALL` 文件以及官方安装说明为准。本文主要记录我在 Linux 环境下的安装流程和注意事项。
 
 <!-- more -->
 
-**说明**
+## 说明
 
-尽管Leonid在安装教程中提到
+官方安装说明中提到：
 
-> SGDASS fully supports Linux and MACOS,
+> SGDASS fully supports Linux and MACOS.
 
-但是，SGDASS在MacOS上的安装并不顺利。
+不过，根据我的实际经验，SGDASS 在 macOS 上的安装并不一定顺利。我和 Leonid 曾在 macOS Sonoma 14.1.1 上进行过尝试，但没有成功完成安装。
 
-我和Leonid近期（2023年11月）曾在MacOS Sonoma（版本号为14.1.1）进行了尝试，但以失败告终。
+因此，从可复现性和节省时间的角度出发，我个人更建议在 Linux 环境下安装和使用 SGDASS。至于 macOS，除非有明确需求，否则不建议作为首选安装环境。
 
-因此，我个人建议不要再花时间在MacOS上进行尝试了。
+下面的安装说明主要面向 Linux 系统。
 
-## I. 安装库函数依赖
+## 1. 安装库函数依赖
 
-SGDASS需要的库函数分为两类：
+SGDASS 需要的依赖大体可以分为两类。
 
-- 需要由安装包管理器来安装，因而需要root用户的权限；
+第一类是通常需要由系统包管理器安装的依赖，因此一般需要 root 权限或 `sudo` 权限。例如：
 
-- 可以通过安装包管理器安装（需要root用户权限）或使用源代码进行编译安装（不需要root访问权限）。  
+- `tcsh`，并且 `csh` 应该是指向 `tcsh` 的符号链接；
+- X11 相关头文件和工具；
+- `perl`；
+- `python3`，版本应为 3.4 或更高。
 
-前者包括
+第二类是可以由系统包管理器安装，也可以从源代码编译安装的依赖。例如：
 
-- tcsh。相应地，csh应为指向tcsh的符号链接;
-- X11头文件;
-- perl;
-- python3（3.4或更高版本）。
+- PostScript 阅读器，例如 ImageMagick；
+- GIF 阅读器，例如 ImageMagick；
+- `gcc`；
+- `g++`；
+- `gfortran`；
+- `CMake`。
 
-后者包括
+下面分别以 Fedora 和 Ubuntu 为例，给出安装这些软件包的命令。不同 Linux 发行版和版本中的软件包名称可能略有差异，因此以下命令仅作参考。若安装失败，应根据系统提示查找对应的软件包名称。
 
-- PostScript阅读器，例如ImageMagic；
-- GIF阅读器，例如ImageMagic；
-- gcc；
-- g++。
+在 Fedora 上，可以参考：
 
-接下来分别以Fedora和Ubuntu为例，给出安装这些软件包的命令。
-在Fedora 36（工作站版）上，安装命令为
-
+```bash
+sudo yum install tcsh gcc gcc-c++ gcc-gfortran perl libX11-devel libXp-devel libXt-devel xorg-x11-server-utils ImageMagick-devel
 ```
 
-yum install tcsh, g++, perl-File-Compare, perl-FindBin, libX11-devel, libXp-devel, libXt-devel, xwd, xrdb, ImageMagick-devel
+在 Ubuntu 22.04 LTS 上，可以参考：
 
-```
-
-在Ubuntu 22.04.2 LTS上，相应的命令为
-
-```
-
+```bash
 sudo apt-get install tcsh gcc gfortran cmake g++ libx11-dev libxt-dev x11-xserver-utils imagemagick autoconf m4 libtirpc-dev
-
 ```
 
-此外，SGDASS需要使用许多第三方开源软件包。
-这些软件包可能已经存在于Linux系统中，但并非所有的都可以与SGDASS一起协作，因为SGDASS要求它们以与大多数Linux发行版不同的方式进行编译。
-所以，这里建议对所有的这些开源软件包进行编译安装。
+此外，SGDASS 需要使用许多第三方开源软件包。这些软件包可能已经存在于 Linux 系统中，但并非所有系统自带版本都能直接与 SGDASS 协同工作，因为 SGDASS 对部分软件包的编译方式有特殊要求。因此，比较稳妥的做法是使用 SGDASS 提供的安装流程，对这些第三方软件包进行编译安装。
 
-安装SGDASS需要较新的gcc和gfortran（8.0.0及更高版本），更低的版本可能无法工作。
-SGDASS提供了安装新版本gcc/g++/gfortran的方法，因此，这里也建议对这些编译器进行编译安装。
+安装 SGDASS 需要较新的 `gcc` 和 `gfortran`，通常要求版本为 8.0.0 或更高。更低版本的编译器可能无法正常工作。SGDASS 提供了安装新版本 `gcc`、`g++` 和 `gfortran` 的方法，因此如果系统自带编译器版本较低，也可以按照官方流程重新编译安装这些编译器。
 
-## II. 安装前的准备
+## 2. 安装前的准备
 
-首先要创建相应的工作目录。
-SGDASS使用固定的目录名称，而且这些目录均在根目录下。
-因此，需要创建这些目录或设置软符号链接。
-这里推荐的是第二种。
-首先要设置SGDASS的根目录：
+首先需要创建相应的工作目录。SGDASS 使用固定的目录名称，而且这些目录通常位于根目录下。因此，需要直接创建这些目录，或者设置符号链接。
 
-```
-sgdass_home="YOUR_DIRECTORY" 
+我更推荐第二种方式：先在自己的工作空间中创建 SGDASS 根目录，然后把根目录下需要的目录名软链接到实际工作目录。
+
+首先设置 SGDASS 的根目录。请将下面的路径替换成你自己的安装位置：
+
+```bash
+sgdass_home="/path/to/your/sgdass/home"
 ```
 
-然后运行下列代码
+然后运行以下脚本创建目录和符号链接。
 
-```
-#!bin/bash
+需要特别注意：下面的脚本会在根目录下创建一系列符号链接，例如 `/apr`、`/opt64`、`/vlbi` 等。运行前请务必确认这些路径没有被系统或其他软件使用。如果某个路径已经存在且不是符号链接，脚本会停止运行，并要求你手动检查。
 
-dirs=("apr" "auto" "cont" "dist" "images" "image_orig" "incoming" "l0" "l1a" \
-    "l1b" "l2" "l3" "logs" "opt64" "progs" "scr" "sde" "sol" "vlbi" "imls")
+```bash
+#!/usr/bin/env bash
 
-for dir in ${dirs[@]};
-do
-    mkdir ${sgdass_home}/${dir}
-    chmod 775 ${sgdass_home}/${dir}
-    sudo rm /${dir}
-    sudo ln -s ${sgdass_home}/${dir} /${dir}
-    chmod 775 /${dir}
+set -euo pipefail
+
+sgdass_home="/path/to/your/sgdass/home"
+
+if [ -z "${sgdass_home}" ] || [ "${sgdass_home}" = "/" ]; then
+  echo "Error: sgdass_home is empty or invalid."
+  exit 1
+fi
+
+dirs=(
+  "apr" "auto" "cont" "dist" "images" "image_orig" "incoming" "l0" "l1a"
+  "l1b" "l2" "l3" "logs" "opt64" "progs" "scr" "sde" "sol" "vlbi" "imls"
+)
+
+for dir in "${dirs[@]}"; do
+  mkdir -p "${sgdass_home}/${dir}"
+  chmod 775 "${sgdass_home}/${dir}"
+
+  if [ -L "/${dir}" ]; then
+    sudo rm "/${dir}"
+  elif [ -e "/${dir}" ]; then
+    echo "Error: /${dir} already exists and is not a symbolic link."
+    echo "Please check it manually before continuing."
+    exit 1
+  fi
+
+  sudo ln -s "${sgdass_home}/${dir}" "/${dir}"
 done
-
-mkdir ${sgdass_home}/apr/eop       # apriori Earth orientation paramers
-mkdir ${sgdass_home}/apr/eph       # apriori ephemerides
-mkdir ${sgdass_home}/apr/iono      # apriori ionosphere data
-mkdir ${sgdass_home}/apr/load_bds  # apriori mass loading time series in bindisp format
-mkdir ${sgdass_home}/apr/load_hps  # apriori mass loading harmonic variations
-mkdir ${sgdass_home}/apr/psolve    # apriori files for psolve
-mkdir ${sgdass_home}/apr/sou       # apriori source positions
-mkdir ${sgdass_home}/apr/spd       # apriori station path delays
-mkdir ${sgdass_home}/apr/sta       # apriori station positions
-mkdir ${sgdass_home}/apr/temp      # apriori temporary files
-mkdir ${sgdass_home}/l2/gvf        # Level 2 VLBI data in GVF format
-mkdir ${sgdass_home}/l2/vda        # Level 2 VLBI data in vgosda format
-mkdir ${sgdass_home}/l2/vdb        # Level 2 VLBI data in vgosdb format
-mkdir ${sgdass_home}/logs/sgdass              # logs from sgdass installation
-mkdir ${sgdass_home}/scr/pima                 # PIMA related files created during processing experiments.
-mkdir ${sgdass_home}/scr/psolve               # temporary files created by psolve
-mkdir ${sgdass_home}/scr/psolve/cgm_dir       # auxilliary combined glboal matrices created by psolve
-mkdir ${sgdass_home}/scr/psolve/tpd           # auxilliary files with path delay created by psolve
-mkdir ${sgdass_home}/scr/psolve/spool_dir     # listing of solutions generated by psolve
-mkdir ${sgdass_home}/scr/psolve/sub_matrices  # auxilliary temporary files created by psolve
-mkdir ${sgdass_home}/scr/psolve/work_dir      # auxilliary files by psolve
-mkdir ${sgdass_home}/sol/heo                  # High frequency Earth Orientation parameter VLBI solutions
-mkdir ${sgdass_home}/sol/qua                  # Quarterly VLBI solutions
-mkdir ${sgdass_home}/sol/rewei                # Reweighting VLBI solutions
-mkdir ${sgdass_home}/sol/rfc                  # astrometric VLBI solutions
-mkdir ${sgdass_home}/vlbi/vtd_data            # data files for VTD
-mkdir ${sgdass_home}/imls/oper_model          # IMLS operational models
-mkdir ${sgdass_home}/imls/devel_model         # IMLS development models
 ```
 
-在[Space Geodesy Data Analysis Software System (astrogeo.org)](http://astrogeo.org/sgdass/)页面下载软件包，并将其保存在`${sgdass_home}/incoming`下：
+接下来继续创建 SGDASS 所需的子目录：
 
-```
-cd ${sgdass_home}/incoming
-wget http://astrogeo.org/data_archive/sgdass-20231122.tar
+```bash
+mkdir -p "${sgdass_home}/apr/eop"                 # apriori Earth orientation parameters
+mkdir -p "${sgdass_home}/apr/eph"                 # apriori ephemerides
+mkdir -p "${sgdass_home}/apr/iono"                # apriori ionosphere data
+mkdir -p "${sgdass_home}/apr/load_bds"            # apriori mass loading time series in bindisp format
+mkdir -p "${sgdass_home}/apr/load_hps"            # apriori mass loading harmonic variations
+mkdir -p "${sgdass_home}/apr/psolve"              # apriori files for pSolve
+mkdir -p "${sgdass_home}/apr/sou"                 # apriori source positions
+mkdir -p "${sgdass_home}/apr/spd"                 # apriori station path delays
+mkdir -p "${sgdass_home}/apr/sta"                 # apriori station positions
+mkdir -p "${sgdass_home}/apr/temp"                # apriori temporary files
+
+mkdir -p "${sgdass_home}/l2/gvf"                  # Level 2 VLBI data in GVF format
+mkdir -p "${sgdass_home}/l2/vda"                  # Level 2 VLBI data in vgosda format
+mkdir -p "${sgdass_home}/l2/vdb"                  # Level 2 VLBI data in vgosdb format
+
+mkdir -p "${sgdass_home}/logs/sgdass"             # logs from SGDASS installation
+
+mkdir -p "${sgdass_home}/scr/pima"                # PIMA related files created during processing
+mkdir -p "${sgdass_home}/scr/psolve"              # temporary files created by pSolve
+mkdir -p "${sgdass_home}/scr/psolve/cgm_dir"      # auxiliary combined global matrices created by pSolve
+mkdir -p "${sgdass_home}/scr/psolve/tpd"          # auxiliary path-delay files created by pSolve
+mkdir -p "${sgdass_home}/scr/psolve/spool_dir"    # listings of solutions generated by pSolve
+mkdir -p "${sgdass_home}/scr/psolve/sub_matrices" # auxiliary temporary files created by pSolve
+mkdir -p "${sgdass_home}/scr/psolve/work_dir"     # auxiliary files used by pSolve
+
+mkdir -p "${sgdass_home}/sol/heo"                 # High-frequency Earth orientation parameter VLBI solutions
+mkdir -p "${sgdass_home}/sol/qua"                 # Quarterly VLBI solutions
+mkdir -p "${sgdass_home}/sol/rewei"               # Reweighting VLBI solutions
+mkdir -p "${sgdass_home}/sol/rfc"                 # Astrometric VLBI solutions
+
+mkdir -p "${sgdass_home}/vlbi/vtd_data"           # data files for VTD
+
+mkdir -p "${sgdass_home}/imls/oper_model"         # IMLS operational models
+mkdir -p "${sgdass_home}/imls/devel_model"        # IMLS development models
 ```
 
-需要将上面命令行中的`sgdass-20231122.tar`替换成最新的版本。
-在`${sgdass_home}/progs`下进行解压：
+然后在 [SGDASS 官方页面](http://astrogeo.org/sgdass/) 下载最新的软件包，并将其保存在 `${sgdass_home}/incoming` 目录下。以下命令中的版本号仅作示例，实际安装时请替换成官方页面显示的最新版本：
 
-```
-cd ${sgdass_home}/progs
-tar -xvf ../incoming/sgdass-20231122.tar
+```bash
+cd "${sgdass_home}/incoming"
+wget http://astrogeo.org/data_archive/sgdass-YYYYMMDD.tar
 ```
 
-软件包中包括：
+例如，如果当前官方版本为 `sgdass-20260516.tar`，则命令为：
+
+```bash
+cd "${sgdass_home}/incoming"
+wget http://astrogeo.org/data_archive/sgdass-20260516.tar
+```
+
+随后在 `${sgdass_home}/progs` 下解压：
+
+```bash
+cd "${sgdass_home}/progs"
+tar -xvf ../incoming/sgdass-YYYYMMDD.tar
+```
+
+如果下载的是 `sgdass-20260516.tar`，则对应为：
+
+```bash
+cd "${sgdass_home}/progs"
+tar -xvf ../incoming/sgdass-20260516.tar
+```
+
+软件包通常包括：
 
 - 第三方软件的源代码；
-- SGDASS安装包；
-- 安装配置示例文件。
+- SGDASS 安装包；
+- 安装配置示例文件；
+- 官方安装说明文件。
 
-设置用户组权限
+设置用户组权限：
 
-```
+```bash
 umask 002
 ```
 
-在`~/.cshrc`（如果该文件，则需要创建新文件）中添加一行
+如果使用 `tcsh`，可以在 `~/.cshrc` 中添加以下内容。如果没有该文件，可以新建：
 
-```
+```tcsh
 setenv LD_LIBRARY_PATH "/opt64/lib:/opt64/lib64:/usr/lib64:/usr/lib"
 setenv PATH "/opt64/bin:/opt64/psolve/bin:${PATH}"
 ```
 
-### III. 安装编译器和cmake
+## 3. 安装编译器和 CMake
 
-**注意：编译器和SGDASS的安装需要在`tcsh`中进行。**
+编译器和 SGDASS 的安装建议在 `tcsh` 环境中进行。
 
-通过编译源代码，将gcc和gfortran安装在/opt64目录下。
-在`${sgdass_home}/progs/sgdass`下，复制gcc安装配置示例文件，将新文件命名为`gcc_linux.cnf`（任意名字都可以）:
+可以使用下面的命令进入 `tcsh`：
 
+```bash
+tcsh
 ```
+
+SGDASS 支持通过编译源代码的方式，将 `gcc`、`g++` 和 `gfortran` 安装在 `/opt64` 目录下。
+
+进入 SGDASS 安装目录。下面路径中的版本号请根据实际下载的版本进行修改：
+
+```tcsh
 cd ${sgdass_home}/progs/sgdass
+```
+
+复制 `gcc` 安装配置示例文件，并将新文件命名为 `gcc_linux.cnf`：
+
+```tcsh
 cp example_gcc_linux.cnf gcc_linux.cnf
 ```
 
-打开`gcc_linux.cnf`，根据实际情况进行修改。通常情况下，不需要做任何修改或只需更改`num_proc`变量的值（**Leonid已经将其设为all**）。
-运行命令：
+打开 `gcc_linux.cnf`，根据实际情况进行修改。通常情况下，不需要做太多修改，或者只需要更改 `num_proc` 变量的值。Leonid 在较新的配置文件中已经将其设为 `all`，因此可以根据机器情况决定是否保留默认设置。
 
-```
+运行以下命令安装编译器和相关工具：
+
+```tcsh
 python3 sgdass_install.py -c gcc_linux.cnf build all
 ```
 
-## IV. 安装
+这一过程可能需要较长时间，具体取决于机器性能和网络情况。
 
-同样地，SGDASS的安装过程也是由配置文件控制，示例文件为example_sgdass_linux.cnf。复制该文件：
+## 4. 安装 SGDASS
 
-```
+SGDASS 的安装过程同样由配置文件控制。示例文件通常为 `example_sgdass_linux.cnf`。复制该文件：
+
+```tcsh
 cp example_sgdass_linux.cnf sgdass_linux.cnf
 ```
 
-检查并根据机器实际情况进行修改。
+然后打开 `sgdass_linux.cnf`，根据机器实际情况进行修改。
 
-**注意：配置文件中软件包的顺序很重要，不可以随意修改。**
+需要特别注意：配置文件中软件包的顺序很重要，不建议随意修改。
 
-自动安装的命令为
+自动安装命令为：
 
-```
-python3 sgdass_install.py -c sgdass_linux.cnf build       all
+```tcsh
+python3 sgdass_install.py -c sgdass_linux.cnf build all
 python3 sgdass_install.py -c sgdass_linux.cnf postinstall all
 ```
 
-如果机器上已经安装过SGDASS，那么在执行安装指令之前，需要先关闭SGDASS（尤其是pSolve）的所有进程。
-整个过程可能需要花费相当长的时间（从几小时到几天不等）。
+如果机器上已经安装过 SGDASS，那么在执行安装指令之前，需要先关闭 SGDASS 相关的所有进程，尤其是 pSolve 相关进程。
 
-## V. 安装后的设置
+整个过程可能需要相当长的时间，从几小时到几天不等，具体取决于机器性能、网络情况和需要编译的软件包数量。
 
-建议使用tcsh来启动SGDASS里面的所有程序。
-假设使用tcsh，那么建议作如下配置。
+## 5. 安装后的设置
 
-- 在`~/.login`中添加以下语句：
+建议使用 `tcsh` 启动 SGDASS 中的程序。假设使用 `tcsh`，可以进行如下配置。
 
-```
+### 5.1 配置 `~/.login`
+
+在 `~/.login` 中添加以下内容。如果没有该文件，可以新建：
+
+```tcsh
 limit coredumpsize     0
 limit stacksize        8000000
 limit maxproc          16384
@@ -224,35 +280,42 @@ limit descriptors      2048
 setenv GOMP_STACKSIZE  2000000
 ```
 
-如果没有`~/.login`这一文件，请新建一个。后面同理。
+### 5.2 配置 `~/.Xdefaults`
 
-- 在`~/.Xdefaults`中添加以下语句：
+在 `~/.Xdefaults` 中添加以下内容：
 
-```
+```text
 pgxwin.Win.iconize:     True
 pgxwin.Win.geometry: 1080x750+0+50
 pgxwin.server.visible: True
 pgxwin.Win.maxColors:   230
 ```
 
-其中，第二行确定了`DIAGI`软件的窗口尺寸，可以根据实际的显示器尺寸进行修改。
+其中，第二行确定了 `DIAGI` 软件的窗口尺寸，可以根据实际显示器尺寸进行修改。
 
-- 在`~/.tcshrc`中添加以下语句：
+### 5.3 配置 `~/.tcshrc`
 
-```
+在 `~/.tcshrc` 中添加以下内容：
+
+```tcsh
 # For SGDASS
-setenv PGPLOT_DEV  "/XW"                      # tells that default is to print
-                                              # the graphics to the screen
-setenv PGPLOT_XW_MARGIN "1.0"                 # sets display margins
-setenv PGPLOT_XSIZE_MM 400.0                  # specifies with width of the PGPLOT window
+setenv PGPLOT_DEV  "/XW"                      # default graphics device
+setenv PGPLOT_XW_MARGIN "1.0"                 # display margins
+setenv PGPLOT_XSIZE_MM 400.0                  # width of the PGPLOT window
 
 setenv LD_LIBRARY_PATH /opt64/lib:/opt64/lib64:/usr/lib:/usr/lib64
 setenv PATH "/opt64/bin:/opt64/psolve/bin:${PATH}"
 setenv PSOLVE_SAVE_DIR "/opt64/share/psolve"
+
 xrdb -merge ~/.Xdefaults
 ```
 
-## VI. 说明
+保存配置文件后，重新打开终端，或重新加载相应配置文件。
 
-需要指出的是，在安装过程中也许会遇到其他问题。
-“[安装SGDASS可能遇到的问题及解决方案](sgdass_installation_notes.html)”一文对这些问题进行了总结，欢迎参考。
+## 6. 可能遇到的问题
+
+SGDASS 的安装过程比较复杂，涉及编译器、系统库、X11、PGPLOT、pSolve 以及多个第三方软件包。因此，在安装过程中可能会遇到其他问题。
+
+我在另一篇文章“[安装 SGDASS 可能遇到的问题及解决方案](sgdass_installation_notes.html)”中对部分问题进行了总结，欢迎参考。
+
+最后再次提醒：SGDASS 更新较快，不同版本的依赖、配置文件和安装流程可能会有所差异。实际安装时，请优先参考官方页面、安装包中的 `INSTALL` 文件和最新安装说明。
