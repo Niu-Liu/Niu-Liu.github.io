@@ -7,9 +7,12 @@ author_profile: true
 
 ## Instructor
 
-### Spring 2025/2026: Spherical Astronomy
+### Spring 2025 and Spring 2026: Spherical Astronomy
 
 Undergraduate course, [School of Astronomy & Space Science, Nanjing University](https://astronomy.nju.edu.cn/)
+
+* Sole instructor.
+* Responsible for lectures, assignments, examinations, and course projects.
 
 ## Co-Instructor
 
