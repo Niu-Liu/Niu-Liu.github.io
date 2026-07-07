@@ -3,7 +3,7 @@ layout: archive
 title: "Talks"
 permalink: /talks/
 author_profile: true
---------------------
+---
 
 ### 2024
 
@@ -49,7 +49,7 @@ author_profile: true
 
 ### 2019
 
-- Is It Possible to Bring the Gaia-CRF2 into VLBI Data Reduction?
+- Is It Possible to Bring the Gaia-CRF2 into VLBI Data Reduction? 
   Contributed talk, Journées 2019, Observatoire de Paris, France, 7 October 2019.
 
 - 从ICRF2到ICRF3：天球参考架的改进对地球定向参数估计的影响
