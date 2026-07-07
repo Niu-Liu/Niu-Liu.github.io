@@ -1,9 +1,16 @@
 <footer class="footer">
-    <a class="up" href="#" data-scroll><i class="icon fa fa-chevron-up" aria-hidden="true"></i></a>
-    <p>&copy; {{site.username}}</p>
-    <p>Build with Jekyll and <a href="https://github.com/Niu-Liu">Niu Liu</a></p>
+  <a class="up" href="#" data-scroll>
+    <i class="icon fa fa-chevron-up" aria-hidden="true"></i>
+  </a>
+
+  <p>&copy; {{ site.time | date: "%Y" }} {{ site.username }}</p>
+  <p>
+    Built with Jekyll and hosted on
+    <a href="https://github.com/Niu-Liu/Niu-Liu.github.io">GitHub Pages</a>.
+  </p>
 </footer>
+
 <script src="//cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-<script src="{{ "/assets/js/sweet-scroll.min.js" | prepend: site.baseurl }}"></script>
-<script src="{{ "/assets/js/main.js" | prepend: site.baseurl }}"></script>
+<script src="{{ '/assets/js/sweet-scroll.min.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 {% include google-analytics.html %}

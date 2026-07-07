@@ -30,7 +30,7 @@ author:
   city             : "Nanjing"
   employer         : "Nanjing University"
   employer_url     : "https://astronomy.nju.edu.cn/EN/index.html"
-  # email            : ""
+  email            : ""
   researchgate     : "https://www.researchgate.net/profile/Niu-Liu?ev=hdr_xprf"
   orcid            : "0000-0003-2778-002X"
   adslib           : "https://ui.adsabs.harvard.edu/user/libraries/EWTz-0tVSn6LqIz7ZgLMgg"
@@ -42,6 +42,8 @@ breadcrumbs              : false # true, false (default)
 future                   : true
 atom_feed:
   path                   : # blank (default) uses feed.xml
+github_username: "Niu-Liu"
+
 
 # Plugins
 plugins:
@@ -82,35 +84,9 @@ main_navigation:
   - title: "Blog"
     url: /blogs/
 
-# # Collections
-# collections:
-#   teaching:
-#     output: true
-#     permalink: /:collection/:path/
-#   publications:
-#     output: true
-#     permalink: /:collection/:path/
-# #   portfolio:
-# #     output: true
-# #     permalink: /:collection/:path/
-#   talks:
-#     output: true
-#     permalink: /:collection/:path/
-
 
 # Defaults
 defaults:
-#   # _posts
-#   - scope:
-#       path: ""
-#       type: posts
-#     values:
-#       layout: single
-#       author_profile: true
-#       read_time: true
-#       comments: true
-#       share: true
-#       related: true
   # _pages
   - scope:
       path: ""
@@ -249,49 +225,3 @@ kramdown:
     syntax_highlighter_opts:
       # Use existing pygments syntax highlighting css
       css_class: 'highlight'
-
-
-
-# # # ----------------- Copied from academic -----------------
-# 
-# # Sass/SCSS
-# sass:
-#   sass_dir: _sass
-#   style: compressed # http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
-# 
-# 
-# 
-# include:
-#   - .htaccess
-#   - _pages
-#   - files
-# exclude:
-#   - "*.sublime-project"
-#   - "*.sublime-workspace"
-#   - .asset-cache
-#   - .bundle
-#   - .jekyll-assets-cache
-#   - .sass-cache
-#   - CHANGELOG
-#   - Capfile
-#   - Gemfile
-#   - Gruntfile.js
-#   - LICENSE
-#   - README
-#   - Rakefile
-#   - assets/js/_main.js
-#   - assets/js/plugins
-#   - assets/js/vendor
-#   - config
-#   - gulpfile.js
-#   - log
-#   - node_modules
-#   - package.json
-#   - tmp
-#   - vendor
-#   - yarn.lock
-#   - CNAME
-# keep_files:
-#   - .git
-#   - .svn
-# encoding: "utf-8"

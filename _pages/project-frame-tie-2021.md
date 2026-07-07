@@ -1,34 +1,17 @@
 ---
 layout: archive
-title: "Project: Investigation of frame-tie in the era of multiwavelength celestial reference frame"
-permalink: /projects/project-postdoc-2021.html
+title: "Project: Frame Tie in the Era of Multi-wavelength Celestial Reference Frames"
+permalink: /projects/frame-tie/
 author_profile: true
 ---
 
-# Investigation of frame-tie in the era of multiwavelength celestial reference frame
+# Frame Tie in the Era of Multi-wavelength Celestial Reference Frames
 
 ## *Descriptions*
 ---
 
-The celestial reference frame (CRF) is a cornerstone of several
-scientific domains in the astronomy, geodesy, and deep space
-mission. 
-The current fundamental reference frame is the third
-generation of International Celestial Reference Frame (ICRF3,
-Charlot et al. 2020), which is consisted of positions of
-extra-galactic objects (mostly Active Galactic Nucleus (AGNs))
-measured by the very long baseline interferometry (VLBI) at
-S/X-, K-, X/Ka-band (8, 24, and 32 GHz, respectively). 
-Although these three components are all obtained by VLBI, they
-can be considered as independent since they use different networks
-and observational strategies. 
-At the optical domain, the Gaia mission provides an independent realization of reference
-frame, Gaia-CRF2 (Gaia Collaboration et al. 2016, 2018), with
-an accuracy comparable to the ICRF3. 
-We are stepping, for the first time of modern history, into an era of multi-wavelength
-celestial reference frame, in the sense of independent celestial
-frame realizations with comparable accuracies of microarcsecond
-level.
+The celestial reference frame (CRF) is fundamental to astronomy, geodesy, and deep-space navigation. The current fundamental reference frame, the third realization of the International Celestial Reference Frame (ICRF3; Charlot et al. 2020), is based on the positions of extragalactic radio sources, mostly active galactic nuclei (AGNs), measured by very long baseline interferometry (VLBI). With the advent of microarcsecond-level astrometry from both VLBI and Gaia, we are entering an era in which reference frames at different wavelengths and frequencies must be linked with unprecedented accuracy. This project investigates the systematic effects that limit such frame ties and explores methods for constructing a unified multi-wavelength celestial reference frame.
+
 
 An accurate celestial reference frame is crucial for space
 geodetic techniques and in the measurement of Earth orientation
