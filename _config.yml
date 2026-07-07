@@ -178,7 +178,7 @@ paginate: 8
 timezone: Asia/Shanghai # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 # Text under the icons in footer
-footer-text:
+footer-text: "© 2026 Niu Liu"
 permalink: /:title/
 paginate_path: /blogs/page:num/
  
