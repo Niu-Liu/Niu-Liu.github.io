@@ -164,17 +164,13 @@ favicon: /assets/img/Headshot.ico
 # and URL Link(e.g. 'Theme' tab below) tabs. If you don't need one, just delete
 # it from the list(Delete '- name: ' and 'url: ', too!)
 blog_navigation:
-# - name: 首页
-  - name: Home
+  - name: 首页
     url: /
-# - name: 博客
-  - name: Blog
+  - name: 博客
     url: /blogs
-# - name: 归档
-  - name: Archive
+  - name: 归档
     url: /archive
-# - name: 标签
-  - name: Tags
+  - name: 标签
     url: /tags
 
 # Pagination

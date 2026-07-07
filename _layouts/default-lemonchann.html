@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
   {% include head-lemonchann.html %}
+
   <body>
     {% include nav.html %}
 
-    {% if page.toc==true %}
+    {% if page.toc == true %}
       <aside class="toc">
         {% include toc.html html=content %}
       </aside>
@@ -16,19 +17,18 @@
       </div>
     </div>
 
+    <div class="wrapper-footer-mobile">
+      <footer class="footer">
+        {% include footer-lemonchann.html %}
+      </footer>
+    </div>
+
     {% include google-analytics.html %}
+
+    {% if page.toc == true %}
+      <script>
+        document.getElementById("main").classList.add("withtoc");
+      </script>
+    {% endif %}
   </body>
-
-  {% if page.toc==true %}
-  <script>
-    document.getElementById("main").classList.add("withtoc");
-  </script>
-  {% endif %}
-
-  <div class="wrapper-footer-mobile">
-    <footer class="footer">
-      {% include footer-lemonchann.html %}
-    </footer>
-
-
 </html>

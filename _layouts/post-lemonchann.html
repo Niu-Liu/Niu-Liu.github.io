@@ -3,44 +3,45 @@ layout: default-lemonchann
 ---
 
 <article class="posts">
-
   <h1>{{ page.title }}</h1>
 
-  <div clsss="meta">
+  <div class="meta">
     <span class="date">
       {{ page.date | date: "%Y-%m-%d" }}
     </span>
 
-    <ul class="tag">
-      {% for tag in page.tags %}
-      <li>
-        <a href="{{ site.url }}{{ site.baseurl }}/tags#{{ tag }}">
-          {{ tag }}
-        </a>
-      </li>
-      {% endfor %}
-    </ul>
+    {% if page.tags %}
+      <ul class="tag">
+        {% for tag in page.tags %}
+          <li>
+            <a href="{{ '/tags/' | append: '#' | append: tag | relative_url }}">
+              {{ tag }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
   </div>
 
   <div class="entry">
     {{ content }}
   </div>
-
 </article>
 
 <div class="pagination">
   {% if page.previous.url %}
-  <span class="prev">
-    <a href="{{ site.url }}{{ site.baseurl }}{{ page.previous.url }}">
-      ← 上一篇
-    </a>
-  </span>
+    <span class="prev">
+      <a href="{{ page.previous.url | relative_url }}">
+        ← 上一篇
+      </a>
+    </span>
   {% endif %}
+
   {% if page.next.url %}
-  <span class="next">
-    <a href="{{ site.url }}{{ site.baseurl }}{{ page.next.url }}">
-      下一篇 →
-    </a>
-  </span>
+    <span class="next">
+      <a href="{{ page.next.url | relative_url }}">
+        下一篇 →
+      </a>
+    </span>
   {% endif %}
 </div>
